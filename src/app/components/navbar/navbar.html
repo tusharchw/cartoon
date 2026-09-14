@@ -1,0 +1,82 @@
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md [-webkit-backdrop-filter:blur(12px)] border-b border-zinc-100 shadow-sm transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+    <a
+      href="#home"
+      (click)="$event.preventDefault(); navigate('#home')"
+      aria-label="CARTRON"
+      class="flex items-center gap-2 group shrink-0"
+    >
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKqcZwE1RDPr4vRuWyd2CVYgxD-xdM5U5dmciv5rCOtoSdampkJ0_hlYPj-zQjIQ0EoKj5bn5uqWMSTCYICCVl7xmqERYwguTcYuaAr2CxS8-sGRMKID2EW0L8X-uVccnbdbhbS8Q6IcMp_OmocXUNc4iNLXf0WiWLuEh3OC0p0Cxs-v0dUBuXBPXItoaxUnE0WUJaEfti3BSLN4-wlnVrZPktSweNaqH7LbfXhyhRihTvHzQuGPfwaIcZiijBrz9zGg"
+        alt="CARTRON"
+        class="h-8 sm:h-9 w-auto"
+      />
+    </a>
+
+    <nav aria-label="Main Navigation" class="hidden md:flex items-center space-x-8 text-[13px] font-semibold tracking-wide text-zinc-600">
+      @for (link of links; track link.href) {
+        <a
+          [href]="link.href"
+          (click)="$event.preventDefault(); navigate(link.href)"
+          class="hover:text-black transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-green after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+        >{{ link.label }}</a>
+      }
+    </nav>
+
+    <div class="flex items-center gap-3 sm:gap-4">
+      <a
+        href="#contact"
+        (click)="$event.preventDefault(); navigate('#contact')"
+        class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-xs tracking-tight transition-all duration-300 transform hover:scale-105 text-white btn-grad shadow-md"
+      >Contact Us</a>
+
+      <button
+        type="button"
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 text-zinc-900"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-label="Toggle navigation menu"
+        (click)="toggleMenu()"
+      >
+        @if (!isMenuOpen()) {
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        } @else {
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        }
+      </button>
+    </div>
+  </div>
+
+  <nav
+    aria-label="Mobile Navigation"
+    class="md:hidden absolute inset-x-0 top-full overflow-hidden bg-white border-t border-zinc-100 shadow-lg transition-[max-height] duration-300 ease-in-out"
+    [class.max-h-96]="isMenuOpen()"
+    [class.max-h-0]="!isMenuOpen()"
+  >
+    <div class="px-4 py-3 flex flex-col gap-1">
+      @for (link of links; track link.href) {
+        <a
+          [href]="link.href"
+          (click)="$event.preventDefault(); navigate(link.href)"
+          class="px-2 py-3 rounded-lg text-sm font-semibold text-zinc-700 hover:bg-surface-muted hover:text-black transition-colors"
+        >{{ link.label }}</a>
+      }
+      <a
+        href="#contact"
+        (click)="$event.preventDefault(); navigate('#contact')"
+        class="mt-2 inline-flex items-center justify-center px-6 py-3 rounded-full font-bold text-xs tracking-tight text-white btn-grad shadow-md"
+      >Contact Us</a>
+    </div>
+  </nav>
+</header>
+
+@if (isMenuOpen()) {
+  <div
+    class="md:hidden fixed inset-0 top-16 z-40 bg-black/30"
+    aria-hidden="true"
+    (click)="toggleMenu()"
+  ></div>
+}

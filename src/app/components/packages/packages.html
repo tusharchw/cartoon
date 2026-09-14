@@ -1,0 +1,33 @@
+<section id="packages" class="py-16 sm:py-20 md:py-24 bg-white border-b border-zinc-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between mb-8 pb-4 border-b border-zinc-200 gap-4">
+      <span class="section-tag">// COVERAGE OPTIONS //</span>
+      <span class="section-tag">// PACKAGES //</span>
+    </div>
+
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-950 tracking-tight mb-12" appReveal>
+      Precision Protection Across <span class="text-refined-gradient">Supercar Packages</span>
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (card of cards; track card.title) {
+        <div class="interactive-card bg-white border border-zinc-200 rounded-2xl p-4 flex gap-4 items-center group" appReveal>
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden flex-shrink-0 bg-zinc-100">
+            <img [src]="card.image" [alt]="card.title" loading="lazy" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-zinc-950 mb-1 group-hover:text-brand-green-hover transition-colors">{{ card.title }}</h3>
+              <span class="w-2 h-2 rounded-full bg-brand-green shrink-0"></span>
+            </div>
+            <p class="text-[11px] text-zinc-500 leading-relaxed mb-3 line-clamp-2">{{ card.description }}</p>
+            <a href="#contact" class="btn-gradient-stroke inline-flex items-center gap-1 text-[11px] font-bold px-3.5 py-1 rounded-full shadow-sm">
+              <span>View</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

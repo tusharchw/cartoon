@@ -1,0 +1,11 @@
+<aside aria-label="Brand statement ticker" class="py-4 bg-brand-dark border-y-2 border-brand-green overflow-hidden whitespace-nowrap select-none">
+  <div class="flex items-center gap-8 animate-marquee hover:[animation-play-state:paused] text-xs md:text-sm font-extrabold tracking-[0.25em] text-white">
+    @for (row of [0, 1, 2, 3]; track row) {
+      <span>
+        @for (item of items; track item; let last = $last) {
+          {{ item }} @if (!last) { <span class="text-brand-green">✦</span> }
+        }
+      </span>
+    }
+  </div>
+</aside>

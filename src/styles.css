@@ -1,0 +1,238 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss';
+
+@theme {
+  /* Brand palette */
+  --color-brand-dark: #0b0f19;
+  --color-brand-green: #a4cb38;
+  --color-brand-green-hover: #8fae32;
+  --color-brand-green-soft: #e8fff1;
+  --color-surface-muted: #f8fafc;
+  --color-surface-card: #f1f5f9;
+  --color-accent-gray: #64748b;
+  --color-border-muted: #e2e8f0;
+
+  /* Typography — Space Grotesk everywhere */
+  --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Marquee & micro-interaction animations */
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 30s linear infinite;
+  --animate-marquee-right: marquee-right 32s linear infinite;
+  --animate-pulse-subtle: pulse-subtle 2.5s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0%); }
+}
+@keyframes pulse-subtle {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(164, 203, 56, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 0 14px rgba(164, 203, 56, 0); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes sweep-stroke {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #ffffff;
+  color: #18181b;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-brand-green);
+  color: #000;
+}
+
+/* Slim brand-tinted scrollbar (progressive enhancement, WebKit/Blink) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f6f4;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-green);
+  border-radius: 9999px;
+  border: 2px solid #f4f6f4;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-green) #f4f6f4;
+}
+
+@layer components {
+  .section-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-brand-green);
+  }
+
+  /* Primary CTA — animated sweep gradient */
+  .btn-grad {
+    background-image: linear-gradient(to right, #000000 0%, var(--color-brand-green) 51%, #000000 100%);
+    background-size: 200% auto;
+    transition: 0.5s all ease;
+    color: #fff;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    box-shadow: 0 8px 24px -4px rgba(170, 203, 84, 0.42);
+  }
+  .btn-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 12px 28px -2px rgba(170, 203, 84, 0.55);
+  }
+
+  /* Secondary refined gradient (green -> slate) */
+  .btn-refined-gradient {
+    background: linear-gradient(135deg, #aacb54 0%, #9bbd45 35%, #68715e 75%, #586050 100%);
+    background-size: 200% 200%;
+    animation: gradient-flow 3.5s ease infinite;
+    color: #ffffff;
+    box-shadow: 0 8px 24px -4px rgba(170, 203, 84, 0.42), 0 2px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-refined-gradient:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 28px -2px rgba(170, 203, 84, 0.55), 0 4px 10px -2px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Gradient text shimmer */
+  .text-refined-gradient {
+    background: linear-gradient(135deg, #aacb54 0%, #9bbd45 30%, #68715e 70%, #586050 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradient-flow 4s ease infinite;
+    display: inline-block;
+  }
+
+  /* White pill button with running gradient stroke on hover */
+  .btn-gradient-stroke {
+    position: relative;
+    background: #ffffff;
+    color: #0b0f19;
+    z-index: 1;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-gradient-stroke::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #aacb54, #9bbd45, #68715e, #586050, #aacb54);
+    background-size: 300% 300%;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: sweep-stroke 3s linear infinite;
+  }
+  .btn-gradient-stroke::after {
+    content: '';
+    position: absolute;
+    inset: 1.5px;
+    border-radius: inherit;
+    background: #ffffff;
+    z-index: -1;
+    transition: background-color 0.2s ease;
+  }
+  .btn-gradient-stroke:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 22px -5px rgba(170, 203, 84, 0.28);
+  }
+  .btn-gradient-stroke:hover::before {
+    opacity: 1;
+  }
+
+  /* Interactive lift + glow border cards */
+  .interactive-card {
+    position: relative;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    isolation: isolate;
+  }
+  .interactive-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    border: 1.5px solid transparent;
+    transition: border-color 0.35s ease, opacity 0.35s ease;
+    opacity: 0;
+    z-index: 2;
+  }
+  .interactive-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px -5px rgba(170, 203, 84, 0.18), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+  }
+  .interactive-card:hover::after {
+    border-color: var(--color-brand-green);
+    opacity: 1;
+  }
+
+  /* Scroll-reveal: progressive enhancement, visible by default (SSR/no-JS safe) */
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal.reveal-armed {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.reveal-armed.reveal-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal.reveal-armed {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .animate-marquee,
+    .animate-marquee-reverse,
+    .animate-marquee-right,
+    .animate-pulse-subtle {
+      animation: none !important;
+    }
+  }
+}
