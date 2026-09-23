@@ -24,7 +24,7 @@ export class Navbar {
     { label: 'About', path: '/about' },
     { label: 'Products', path: '/products' },
     { label: 'Gallery', path: '/gallery' },
-    { label: 'Reviews', path: '/', fragment: 'testimonials' },
+    //{ label: 'Reviews', path: '/', fragment: 'testimonials' },
   ];
 
   protected readonly activeOptions: IsActiveMatchOptions = {
