@@ -1,0 +1,454 @@
+<app-navbar />
+
+<main class="pt-16 sm:pt-20 bg-[#f9f9f9] text-[#1a1c1c] font-body text-[14px] leading-[22px]">
+  <!-- Telemetry status bar -->
+  <div class="w-full bg-[#2f3131] text-white py-2 px-5 lg:px-12 border-b border-white/10">
+    <div class="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-y-1 gap-x-4 text-[#c4c7cb] text-[11px] font-sans font-bold tracking-wider">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 text-electric font-semibold">
+          <span class="w-2 h-2 rounded-full bg-electric animate-ping"></span>
+          <span>BAY 01 &amp; 02 ACTIVE</span>
+        </span>
+        <span class="text-[#e2e2e2]/40 hidden sm:inline">|</span>
+        <span class="hidden md:inline">AMERICAN TPU MOLECULAR CORE ARCHITECTURE</span>
+        <span class="text-[#e2e2e2]/40 hidden md:inline">|</span>
+        <span class="hidden lg:inline text-white">// ISO 9001:2015 CERTIFIED //</span>
+      </div>
+      <div class="flex items-center gap-4 tracking-widest text-electric">
+        <span>DELHI NCR FLAGSHIP</span>
+        <span class="text-[#e2e2e2]/40 hidden sm:inline">|</span>
+        <span class="hidden sm:inline">HUMIDITY: 44% RH</span>
+        <span class="text-[#e2e2e2]/40 hidden md:inline">|</span>
+        <span class="hidden md:inline">OPTICAL GRADE: X210</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero / executive stats dock -->
+  <section class="w-full py-12 lg:py-[4.5rem] px-5 lg:px-12 bg-white border-b border-[#eeeeee]">
+    <div class="max-w-[1400px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+        <div class="lg:col-span-7 flex flex-col items-start space-y-3" appReveal>
+          <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-[#f3f3f4] border border-[#eeeeee] shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-olive animate-ping"></span>
+            <span class="font-sans text-[11px] leading-[14px] tracking-[0.14em] uppercase text-[#1a1c1c] font-bold">// B2B DISTRIBUTION &amp; ATELIER ACCESS //</span>
+          </div>
+          <h1 class="font-sans text-[36px] leading-[40px] sm:text-[54px] sm:leading-[58px] tracking-[-0.03em] uppercase text-[#1a1c1c] font-bold">
+            CONNECT <span class="text-refined-gradient">WITH CARTRON</span>
+          </h1>
+          <p class="text-lg sm:text-[20px] sm:leading-[32px] tracking-[-0.01em] text-[#5b5f62] max-w-2xl">
+            Expand your detailing studio network with CARTRON optical-grade TPU film. Direct factory allocation desk for master rolls, precision CAD plotter software suite, and high-margin wholesale territory agreements.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 grid grid-cols-2 gap-3 w-full pt-4 lg:pt-0" appReveal>
+          @for (stat of heroStats; track stat.label) {
+            <div class="p-4 rounded-[2rem] bg-[#f3f3f4] border border-[#eeeeee]/20 glow-lift-card relative overflow-hidden">
+              <div class="absolute top-0 left-0 h-full w-1 bg-olive"></div>
+              <span class="font-sans text-[11px] leading-[14px] tracking-[0.14em] font-bold text-[#5b5f62] block">{{ stat.label }}</span>
+              <span
+                class="font-sans text-[22px] sm:text-[28px] leading-tight font-bold tracking-[-0.04em] mt-1 block"
+                [class]="stat.gradient ? 'text-refined-gradient' : 'text-[#1a1c1c]'"
+              >{{ stat.value }}</span>
+              <span class="text-[11px] text-[#8a8e92] block">{{ stat.note }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dealer application + command center -->
+  <section class="w-full py-[4.5rem] px-5 lg:px-12 bg-[#f3f3f4]">
+    <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Dealer application portal -->
+      <div class="lg:col-span-7 bg-white p-6 lg:p-12 rounded-[2rem] shadow-xl relative overflow-hidden border border-[#eeeeee]" appReveal>
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#586050] via-olive to-brand-green"></div>
+
+        <div class="flex items-start sm:items-center justify-between gap-4 pb-6 border-b border-[#eeeeee] mb-6">
+          <div>
+            <span class="font-sans text-[11px] leading-[14px] tracking-[0.14em] text-[#006e26] uppercase font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-olive"></span>
+              // OFFICIAL DEALER ONBOARDING PORTAL //
+            </span>
+            <h2 class="font-sans text-[26px] leading-[32px] sm:text-[32px] sm:leading-[38px] tracking-[-0.02em] text-[#1a1c1c] font-bold mt-1">Wholesale &amp; Studio Application</h2>
+            <p class="text-[#5b5f62] mt-0.5">Authorized dealership allocations, volume discounts, and precision plotter software access.</p>
+          </div>
+          <div class="hidden sm:flex flex-col items-end shrink-0">
+            <span class="font-sans text-[11px] leading-[14px] tracking-[0.14em] text-white font-bold bg-[#1d201c] px-3 py-1 rounded-lg border border-olive/40">STATUS: ALLOCATING</span>
+            <span class="text-[11px] text-[#5b5f62] mt-1">Q2 ALLOTMENT WINDOW</span>
+          </div>
+        </div>
+
+        @if (!submitted()) {
+          <form class="space-y-6" (submit)="submitApplication($event)">
+            <!-- Step 1 -->
+            <div class="space-y-3">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-[#1d201c] text-brand-green text-[12px] font-bold flex items-center justify-center font-sans">01</span>
+                <h3 class="font-sans text-[14px] uppercase tracking-wider font-bold text-[#1a1c1c]">Dealership &amp; Contact Credentials</h3>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-1">
+                  <label class="font-sans text-[12px] text-[#1a1c1c] uppercase tracking-wider font-semibold" for="business-name">Business / Dealership Name *</label>
+                  <input class="contact-field" id="business-name" name="business_name" placeholder="e.g. Apex Detailing Hub Pvt Ltd" required type="text" autocomplete="organization" />
+                </div>
+                <div class="space-y-1">
+                  <label class="font-sans text-[12px] text-[#1a1c1c] uppercase tracking-wider font-semibold" for="contact-person">Contact Person Name *</label>
+                  <input class="contact-field" id="contact-person" name="contact_person" placeholder="e.g. Vikramaditya Singhania" required type="text" autocomplete="name" />
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-1">
+                  <label class="font-sans text-[12px] text-[#1a1c1c] uppercase tracking-wider font-semibold" for="phone-number">Direct Phone / WhatsApp *</label>
+                  <input class="contact-field" id="phone-number" name="phone" placeholder="+91 98XXX XXXXX" required type="tel" autocomplete="tel" />
+                </div>
+                <div class="space-y-1">
+                  <label class="font-sans text-[12px] text-[#1a1c1c] uppercase tracking-wider font-semibold" for="business-email">Business Email Address *</label>
+                  <input class="contact-field" id="business-email" name="email" placeholder="dealer@company.com" required type="email" autocomplete="email" />
+                </div>
+              </div>
+              <div class="space-y-1">
+                <label class="font-sans text-[12px] text-[#1a1c1c] uppercase tracking-wider font-semibold" for="city-region">Operating City / State / Region *</label>
+                <input class="contact-field" id="city-region" name="region" placeholder="e.g. Delhi NCR / Mumbai / Bengaluru / Hyderabad" required type="text" />
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="space-y-3 pt-2" role="radiogroup" aria-labelledby="entity-label">
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-[#1d201c] text-brand-green text-[12px] font-bold flex items-center justify-center font-sans">02</span>
+                  <span id="entity-label" class="font-sans text-[14px] uppercase tracking-wider font-bold text-[#1a1c1c]">Select Entity Classification *</span>
+                </div>
+                <span class="hidden sm:inline font-sans text-[11px] tracking-[0.14em] text-[#006e26] font-bold">// B2B PROFILE //</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                @for (type of entityTypes; track type.value; let first = $first) {
+                  <label class="flex items-center gap-2 p-3 rounded-2xl bg-[#f3f3f4] border border-[#eeeeee] cursor-pointer hover:bg-[#eeeeee] has-checked:bg-[#1d201c] has-checked:text-white has-checked:border-olive has-focus-visible:ring-2 has-focus-visible:ring-olive/50 text-[#1a1c1c] transition-all">
+                    <input class="sr-only" name="business_type" type="radio" [value]="type.value" [attr.checked]="first ? '' : null" />
+                    <span class="material-symbols-outlined text-[20px] text-olive">{{ type.icon }}</span>
+                    <div>
+                      <span class="font-sans text-[13px] font-bold block">{{ type.title }}</span>
+                      <span class="font-sans text-[10px] opacity-75">{{ type.note }}</span>
+                    </div>
+                  </label>
+                }
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="space-y-3 pt-2" role="radiogroup" aria-labelledby="volume-label">
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-[#1d201c] text-brand-green text-[12px] font-bold flex items-center justify-center font-sans shrink-0">03</span>
+                  <span id="volume-label" class="font-sans text-[14px] uppercase tracking-wider font-bold text-[#1a1c1c]">Anticipated Monthly Master Roll Volume *</span>
+                </div>
+                <span class="hidden sm:inline font-sans text-[11px] tracking-[0.14em] text-[#5b5f62] font-bold shrink-0">// MASTER ROLLS //</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                @for (vol of volumes; track vol.value; let first = $first) {
+                  <label class="p-3 rounded-2xl bg-[#f3f3f4] cursor-pointer text-center hover:bg-[#eeeeee] has-checked:border-olive has-checked:bg-white has-checked:shadow-md has-focus-visible:ring-2 has-focus-visible:ring-olive/50 border-2 border-transparent transition-all block">
+                    <input class="sr-only" name="volume_req" type="radio" [value]="vol.value" [attr.checked]="first ? '' : null" />
+                    <span class="font-sans text-[14px] font-bold block text-[#1a1c1c]">{{ vol.title }}</span>
+                    <span class="font-sans text-[10px] text-[#5b5f62]">{{ vol.note }}</span>
+                  </label>
+                }
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="space-y-1 pt-2">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-6 h-6 rounded-full bg-[#1d201c] text-brand-green text-[12px] font-bold flex items-center justify-center font-sans shrink-0">04</span>
+                <label class="font-sans text-[12px] text-[#1a1c1c] uppercase tracking-wider font-semibold" for="partnership-notes">Strategic Requirements / Current Brands Carried</label>
+              </div>
+              <textarea
+                class="contact-field h-auto py-3"
+                id="partnership-notes"
+                name="notes"
+                rows="3"
+                placeholder="Provide details regarding current studio setup, monthly vehicle volume, existing film brands carried, preferred territory exclusivity, or specific roll widths required..."
+              ></textarea>
+            </div>
+
+            <div class="pt-3">
+              <button class="btn-grad btn-shine-sweep w-full h-14 rounded-full font-sans text-[16px] sm:text-[18px] uppercase font-bold flex items-center justify-center gap-3 group cursor-pointer shadow-lg" type="submit">
+                <span class="tracking-wider">SUBMIT DEALER APPLICATION</span>
+                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </button>
+              <p class="text-[12px] leading-[18px] text-[#5b5f62] text-center mt-2">
+                <span class="text-olive font-semibold">// OFFICIAL VERIFIED PARTNERSHIP //</span> Authorized territories receive dealer margins, warranty registry tokens, and master CAD support.
+              </p>
+            </div>
+          </form>
+        } @else {
+          <div class="p-4 rounded-2xl bg-[#eeeeee] text-[#1a1c1c] border-l-4 border-olive animate-slide-in" role="status">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-olive text-[28px]">check_circle</span>
+              <div>
+                <div class="font-sans text-[18px] leading-[24px] font-bold">Dealer Enquiry Transmitted Successfully</div>
+                <div class="text-[12px] leading-[18px] text-[#5b5f62]">Our distribution channel desk will review your details and initiate contract documentation within 24 hours.</div>
+              </div>
+            </div>
+          </div>
+          <button type="button" (click)="submitted.set(false)" class="mt-4 text-[12px] font-sans font-bold uppercase tracking-wider text-olive hover:text-[#1a1c1c] transition-colors">
+            ← Submit another application
+          </button>
+        }
+      </div>
+
+      <!-- Command center column -->
+      <div class="lg:col-span-5 flex flex-col space-y-4" appReveal>
+        <!-- Rapid connect -->
+        <div class="bg-[#161815] text-white p-6 rounded-[2rem] shadow-xl relative overflow-hidden border border-olive/30">
+          <div class="flex items-center justify-between gap-2 pb-3 border-b border-white/10">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-brand-green animate-ping"></span>
+              <span class="font-sans text-[11px] leading-[14px] tracking-[0.14em] text-brand-green uppercase font-bold">COMMAND CENTER // RAPID CONNECT</span>
+            </div>
+            <span class="hidden sm:inline font-sans text-[11px] tracking-[0.14em] font-bold text-[#c4c7cb]">GREATER NOIDA HQ</span>
+          </div>
+          <h3 class="font-sans text-[24px] leading-[30px] tracking-[-0.01em] font-bold uppercase mt-3 mb-4">Speak with Distribution Desk</h3>
+
+          <div class="space-y-3">
+            <a [href]="contact.phoneHref" class="flex items-center justify-between p-3 rounded-2xl bg-[#1d201c] hover:bg-[#252924] border border-white/10 group glow-lift-card">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-olive text-[#161815] flex items-center justify-center shadow-md shrink-0">
+                  <span class="material-symbols-outlined text-[20px]">phone_in_talk</span>
+                </div>
+                <div>
+                  <span class="font-sans text-[10px] font-bold text-[#c4c7cb] tracking-wider uppercase block">DEALER &amp; DISTRIBUTION HELPLINE</span>
+                  <span class="font-sans text-[20px] leading-tight font-bold group-hover:text-brand-green transition-colors">{{ contact.phoneDisplay }}</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-[#c4c7cb] group-hover:text-brand-green transition-colors">arrow_outward</span>
+            </a>
+
+            <a [href]="contact.whatsappDealerHref" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 rounded-2xl bg-[#1d201c] hover:bg-[#252924] border border-olive/40 group glow-lift-card">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-brand-green text-[#161815] flex items-center justify-center shadow-[0_0_14px_rgba(164,203,56,0.6)] shrink-0">
+                  <span class="material-symbols-outlined text-[20px]">chat</span>
+                </div>
+                <div>
+                  <span class="font-sans text-[10px] text-brand-green tracking-wider uppercase font-bold flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-green animate-ping"></span>CHAT WITH B2B DESK
+                  </span>
+                  <span class="font-sans text-[16px] sm:text-[18px] leading-[24px] font-semibold">WhatsApp Instant Dealer Desk</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-brand-green group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+
+            <a [href]="'mailto:' + contact.email" class="flex items-center justify-between p-3 rounded-2xl bg-[#1d201c] hover:bg-[#252924] border border-white/10 group glow-lift-card">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="w-10 h-10 rounded-full bg-white/10 text-brand-green flex items-center justify-center border border-olive/30 shrink-0">
+                  <span class="material-symbols-outlined text-[20px]">mail</span>
+                </div>
+                <div class="min-w-0">
+                  <span class="font-sans text-[10px] font-bold text-[#c4c7cb] tracking-wider uppercase block">Wholesale &amp; Orders Email</span>
+                  <span class="text-[14px] leading-tight font-semibold group-hover:text-brand-green transition-colors truncate block">{{ contact.email }}</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-[#c4c7cb] group-hover:text-brand-green transition-colors">arrow_outward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Plant telemetry -->
+        <div class="bg-[#161815] text-white p-6 rounded-[2rem] shadow-xl space-y-3 glow-lift-card border border-olive/30 relative overflow-hidden">
+          <div class="flex items-center justify-between gap-2">
+            <span class="font-sans text-[11px] leading-[14px] tracking-[0.14em] text-brand-green font-bold uppercase flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-brand-green animate-ping"></span>// LIVE PLANT TELEMETRY //
+            </span>
+            <span class="font-sans text-[11px] tracking-[0.14em] font-bold text-[#c4c7cb]">GREATER NOIDA</span>
+          </div>
+          <div>
+            <h3 class="font-sans text-[24px] leading-[30px] tracking-[-0.01em] font-bold">CARTRON Plant &amp; Dispatch Facility</h3>
+            <p class="text-[#c4c7cb] mt-1">{{ locations[0].addressLine }}</p>
+            <button
+              type="button"
+              (click)="showOnMap('plant')"
+              class="font-sans text-[11px] leading-[14px] tracking-[0.14em] font-bold text-brand-green bg-[#1d201c] hover:bg-[#252924] px-3 py-1 rounded-lg mt-2 inline-flex items-center gap-1.5 border border-olive/30 transition-colors"
+            >
+              <span class="material-symbols-outlined text-[14px]">location_on</span>
+              VIEW ON LIVE MAP
+            </button>
+          </div>
+          <div class="space-y-2 text-[#c4c7cb] text-[12px] leading-[18px] pt-2 border-t border-white/10">
+            <div class="flex items-center justify-between gap-2">
+              <span class="font-semibold text-white">Dispatch Hours:</span>
+              <span class="text-right">{{ locations[0].hours }}</span>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+              <span class="font-semibold text-white">Logistics Partner:</span>
+              <span class="text-brand-green font-semibold text-right">Pan-India Expedited Freight Bay</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social channels -->
+        <div class="bg-white p-6 rounded-[2rem] shadow-md border border-[#eeeeee] relative overflow-hidden">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div>
+              <div class="font-sans text-[11px] leading-[14px] tracking-[0.14em] text-[#006e26] font-bold uppercase flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-olive"></span>OFFICIAL BRAND CHANNELS
+              </div>
+              <div class="font-sans text-[18px] leading-[24px] text-[#1a1c1c] font-bold mt-0.5">Connect Across Platforms</div>
+            </div>
+            <span class="px-2 py-1 rounded-lg bg-[#eeeeee] text-[#161815] font-sans text-[10px] font-bold uppercase tracking-wider shrink-0">// ACTIVE FEEDS //</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <a [href]="contact.instagram" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl bg-[#f3f3f4] hover:bg-[#161815] hover:text-white border border-[#eeeeee] transition-all flex items-center gap-2 group/social shadow-sm">
+              <svg class="w-5 h-5 fill-current text-olive group-hover/social:text-brand-green transition-colors shrink-0" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+              <div class="flex flex-col">
+                <span class="font-sans text-[13px] font-bold leading-tight">Instagram</span>
+                <span class="font-sans text-[10px] text-[#5b5f62] group-hover/social:text-[#c4c7cb]">&#64;cartronppf</span>
+              </div>
+            </a>
+            <a [href]="contact.facebook" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl bg-[#f3f3f4] hover:bg-[#161815] hover:text-white border border-[#eeeeee] transition-all flex items-center gap-2 group/social shadow-sm">
+              <svg class="w-5 h-5 fill-current text-olive group-hover/social:text-brand-green transition-colors shrink-0" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+              <div class="flex flex-col">
+                <span class="font-sans text-[13px] font-bold leading-tight">Facebook</span>
+                <span class="font-sans text-[10px] text-[#5b5f62] group-hover/social:text-[#c4c7cb]">/cartronppf</span>
+              </div>
+            </a>
+            <a [href]="contact.linkedin" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl bg-[#f3f3f4] hover:bg-[#161815] hover:text-white border border-[#eeeeee] transition-all flex items-center gap-2 group/social shadow-sm">
+              <svg class="w-5 h-5 fill-current text-olive group-hover/social:text-brand-green transition-colors shrink-0" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+              <div class="flex flex-col">
+                <span class="font-sans text-[13px] font-bold leading-tight">LinkedIn</span>
+                <span class="font-sans text-[10px] text-[#5b5f62] group-hover/social:text-[#c4c7cb]">cartronppf</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live location map console -->
+  <section id="location" class="w-full py-[4.5rem] px-5 lg:px-12 bg-white border-t border-[#eeeeee] scroll-mt-20">
+    <div class="max-w-[1400px] mx-auto space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4" appReveal>
+        <div>
+          <div class="inline-flex items-center gap-2 font-sans text-[11px] leading-[14px] tracking-[0.14em] text-olive uppercase mb-1 font-bold">
+            <span class="w-2 h-2 rounded-full bg-olive"></span>
+            <span>LOGISTICS TOPOLOGY &amp; FREIGHT CORRIDORS</span>
+          </div>
+          <h2 class="font-sans text-[30px] leading-[36px] sm:text-[44px] sm:leading-[48px] tracking-[-0.03em] text-[#1a1c1c] font-bold uppercase">
+            @if (activeLocation().id === 'plant') {
+              PLANT LOCATION // GREATER NOIDA EXTRUSION FACILITY
+            } @else {
+              STUDIO LOCATION // NEW DELHI CLEANROOM ATELIER
+            }
+          </h2>
+        </div>
+
+        <div class="flex items-center bg-[#f3f3f4] p-1.5 rounded-full border border-[#eeeeee] self-start md:self-end shrink-0" role="tablist" aria-label="Choose location">
+          @for (loc of locations; track loc.id) {
+            <button
+              type="button"
+              role="tab"
+              [attr.aria-selected]="activeLocationId() === loc.id"
+              (click)="selectLocation(loc.id)"
+              class="px-4 py-2 rounded-full font-sans text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-200"
+              [class]="activeLocationId() === loc.id ? 'btn-refined-gradient text-white shadow-md' : 'text-[#5b5f62] hover:text-[#1a1c1c] hover:bg-white'"
+            >{{ loc.tabLabel }}</button>
+          }
+        </div>
+      </div>
+
+      <div class="relative w-full rounded-[2rem] overflow-hidden shadow-2xl bg-[#161815] border border-olive/30" appReveal>
+        <div class="relative w-full h-[420px] sm:h-[460px] lg:h-[520px]">
+          @defer (on viewport) {
+            <iframe
+              [src]="mapEmbedUrl()"
+              [title]="'Map: ' + activeLocation().addressLine"
+              (load)="mapLoading.set(false)"
+              class="absolute inset-0 w-full h-full border-0 [filter:saturate(0.85)_contrast(1.05)]"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          } @placeholder {
+            <div class="absolute inset-0 bg-[#161815] bg-grid-dark"></div>
+          }
+
+          <!-- Radar pin while the live map loads -->
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-[#161815]/80 backdrop-blur-[1px] transition-opacity duration-500 pointer-events-none"
+            [class.opacity-0]="!mapLoading()"
+            aria-hidden="true"
+          >
+            <div class="relative flex flex-col items-center">
+              <div class="relative flex items-center justify-center">
+                <span class="w-20 h-20 rounded-full border-2 border-olive/50 animate-ping absolute"></span>
+                <span class="w-12 h-12 rounded-full bg-brand-green/30 animate-pulse absolute"></span>
+                <div class="w-12 h-12 rounded-full bg-olive text-[#161815] flex items-center justify-center shadow-[0_0_28px_rgba(164,203,56,0.9)] z-10">
+                  <span class="material-symbols-outlined text-[24px]">{{ activeLocation().id === 'plant' ? 'factory' : 'location_on' }}</span>
+                </div>
+              </div>
+              <div class="mt-3 font-sans text-[11px] tracking-[0.14em] text-brand-green font-bold">LOCATING // {{ activeLocation().tabLabel | uppercase }}</div>
+            </div>
+          </div>
+
+          <!-- Location label card -->
+          <div class="hidden sm:block absolute top-4 left-4 z-10 bg-[#1d201c]/95 text-white px-4 py-2 rounded-2xl border border-olive/40 shadow-2xl backdrop-blur-md max-w-sm">
+            <div class="flex items-center gap-2">
+              <span class="relative flex w-2.5 h-2.5 shrink-0">
+                <span class="absolute inset-0 rounded-full bg-brand-green animate-ping"></span>
+                <span class="relative w-2.5 h-2.5 rounded-full bg-brand-green"></span>
+              </span>
+              <div class="font-sans text-[11px] leading-[14px] tracking-[0.14em] text-brand-green font-bold">{{ activeLocation().tag }}</div>
+            </div>
+            <div class="font-sans text-[18px] leading-[24px] font-bold mt-0.5">{{ activeLocation().name }}</div>
+            <div class="text-[12px] text-[#c4c7cb]">{{ activeLocation().detail }}</div>
+          </div>
+        </div>
+
+        <!-- Corridor overlay card (stacks below the map on phones) -->
+        <div class="relative sm:absolute sm:bottom-4 sm:left-4 sm:max-w-md bg-[#1d201c]/95 backdrop-blur-md p-4 sm:rounded-2xl sm:border border-olive/30 shadow-2xl text-white z-10">
+          <div class="sm:hidden mb-3">
+            <div class="font-sans text-[11px] tracking-[0.14em] text-brand-green font-bold">{{ activeLocation().tag }}</div>
+            <div class="text-[13px] text-[#c4c7cb]">{{ activeLocation().addressLine }}</div>
+          </div>
+          <div class="flex items-center gap-2 font-sans text-[11px] leading-[14px] tracking-[0.14em] text-brand-green mb-1 uppercase font-bold">
+            <span class="material-symbols-outlined text-[16px]">near_me</span>
+            <span>{{ activeLocation().id === 'plant' ? 'Rapid Dispatch Corridors' : 'Studio Access' }}</span>
+          </div>
+          <ul class="space-y-1.5 text-[12px] leading-[18px] text-[#c4c7cb]">
+            @for (row of corridors[activeLocation().id]; track row.label; let last = $last) {
+              <li class="flex items-center justify-between gap-3 pb-1" [class]="last ? '' : 'border-b border-white/10'">
+                <strong class="text-white">{{ row.label }}</strong>
+                <span class="text-brand-green font-semibold text-right">{{ row.value }}</span>
+              </li>
+            }
+          </ul>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <a
+              [href]="directionsUrl()"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-refined-gradient btn-shine-sweep inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-sans text-[11px] font-bold uppercase tracking-wider text-white"
+            >
+              <span class="material-symbols-outlined text-[16px]">directions</span>
+              Get Directions
+            </a>
+            <a
+              [href]="openInMapsUrl()"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-sans text-[11px] font-bold uppercase tracking-wider text-white border border-white/20 hover:border-brand-green hover:text-brand-green transition-colors"
+            >
+              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+              Open in Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer />
+<app-whatsapp-button />

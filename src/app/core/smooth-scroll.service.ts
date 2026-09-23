@@ -40,15 +40,32 @@ export class SmoothScrollService implements OnDestroy {
     this.rafId = requestAnimationFrame(raf);
   }
 
-  scrollTo(target: string | HTMLElement, offset = -88): void {
-    if (this.lenis) {
-      this.lenis.scrollTo(target, { offset, duration: 1.6 });
+  scrollTo(target: string | HTMLElement | number, offset = -88): void {
+    if (!isPlatformBrowser(this.platformId)) {
       return;
     }
-    if (typeof target === 'string') {
+    if (this.lenis) {
+      this.lenis.scrollTo(target, { offset: typeof target === 'number' ? 0 : offset, duration: 1.6 });
+      return;
+    }
+    if (typeof target === 'number') {
+      window.scrollTo({ top: target, behavior: 'smooth' });
+    } else if (typeof target === 'string') {
       document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
     } else {
       target.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  /** Jump to the top without animation — used when a new page is routed in. */
+  resetToTop(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    if (this.lenis) {
+      this.lenis.scrollTo(0, { immediate: true, force: true });
+    } else {
+      window.scrollTo(0, 0);
     }
   }
 

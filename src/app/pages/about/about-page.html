@@ -1,0 +1,223 @@
+<app-navbar />
+
+<main class="pt-16 sm:pt-20 bg-[#f9fafb] text-neutral-900 selection:bg-[#aacb54] selection:text-black">
+  <!-- Hero: core mission -->
+  <section class="relative py-20 lg:py-28 bg-[#fafaf8] border-b border-neutral-200 bg-grid-subtle">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" appReveal>
+      <div class="inline-flex items-center space-x-2 font-mono text-xs tracking-widest text-neutral-500 uppercase mb-8">
+        <span class="w-6 h-[2px] bg-[#aacb54]"></span>
+        <span>PAINT PRESERVATION</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-black tracking-tight uppercase leading-[1.08] mb-8">
+        Born from American TPU Technology<br />
+        <span class="text-neutral-600 font-bold">Engineered for Indian Roads</span>
+      </h1>
+
+      <div class="space-y-6 text-lg sm:text-xl text-neutral-700 leading-relaxed max-w-3xl mb-14 font-normal">
+        <p>
+          Cartron Paint Protection Film is designed to preserve the beauty of your vehicle against harsh weather, stone chips, scratches, road debris, bird droppings, UV exposure, and everyday wear.
+        </p>
+        <p>
+          Built using premium TPU technology sourced from America, Cartron delivers superior clarity, exceptional durability, self-healing performance, and long-lasting protection for modern vehicles.
+        </p>
+      </div>
+
+      <div class="pt-10 border-t border-neutral-200">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
+          @for (stat of stats; track stat.value) {
+            <div class="flex flex-col">
+              <span
+                class="text-5xl lg:text-6xl font-black tracking-tight leading-none mb-2"
+                [class]="stat.accent ? 'text-[#aacb54]' : 'text-black'"
+              >{{ stat.value }}</span>
+              <span class="font-mono text-xs uppercase font-bold tracking-wider text-black">{{ stat.label[0] }}<br />{{ stat.label[1] }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cleanroom atelier & craftsmanship -->
+  <section class="py-24 bg-[#0d0f12] text-white bg-grid-dark relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-16" appReveal>
+        <div class="inline-flex items-center space-x-2 font-mono text-xs tracking-widest text-[#aacb54] uppercase mb-3">
+          <span class="w-4 h-[2px] bg-[#aacb54]"></span>
+          <span>// PRECISION CRAFT &amp; ENVIRONMENT //</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight uppercase">
+          The Cleanroom Installation Atelier
+        </h2>
+        <p class="mt-4 text-neutral-400 text-base sm:text-lg leading-relaxed">
+          Micro-particle filtered atmospheric conditions combined with digital CAD pre-cut precision templates to ensure zero blade contact on factory paintwork.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10" appReveal>
+        @for (card of atelierCards; track card.title) {
+          <article class="group bg-neutral-900/80 border border-neutral-800 rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:border-neutral-700">
+            <div class="relative overflow-hidden aspect-[16/10] bg-black">
+              <img
+                [src]="card.image"
+                [alt]="card.alt"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
+              <div class="absolute top-4 left-4 flex flex-wrap gap-2 font-mono text-[10px] tracking-wider uppercase">
+                <span class="bg-black/90 text-[#aacb54] border border-[#aacb54]/40 px-2.5 py-1 rounded backdrop-blur">{{ card.tags[0] }}</span>
+                <span class="bg-black/90 text-white border border-neutral-700 px-2.5 py-1 rounded backdrop-blur">{{ card.tags[1] }}</span>
+              </div>
+              <div class="absolute bottom-4 right-4 font-mono text-[10px] bg-black/80 text-neutral-300 border border-neutral-700 px-2.5 py-1 rounded">
+                {{ card.spec }}
+              </div>
+            </div>
+            <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold uppercase tracking-tight text-white mb-2">{{ card.title }}</h3>
+                <p class="text-neutral-400 text-sm leading-relaxed">{{ card.body }}</p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-neutral-800 font-mono text-xs text-[#aacb54] flex flex-wrap gap-2 items-center justify-between">
+                <span>{{ card.footLeft }}</span>
+                <span>{{ card.footRight }}</span>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 9-layer molecular core anatomy -->
+  <section class="py-24 bg-white border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6" appReveal>
+        <div>
+          <div class="inline-flex items-center space-x-2 font-mono text-xs tracking-widest text-neutral-500 uppercase mb-3">
+            <span class="w-4 h-[2px] bg-[#aacb54]"></span>
+            <span>// TECHNICAL SPECIFICATION //</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-black">
+            9-Layer Molecular Core Anatomy
+          </h2>
+        </div>
+        <p class="font-mono text-xs text-neutral-500 max-w-md">
+          Synthesized with pure virgin American Thermoplastic Polyurethane (TPU) to resist thermal expansion and severe environmental degradation.
+        </p>
+      </div>
+
+      <div class="space-y-4" appReveal>
+        @for (layer of layers; track layer.badge) {
+          <div
+            class="p-6 rounded-lg transition-colors flex flex-col lg:flex-row lg:items-center justify-between gap-4"
+            [class]="layer.core
+              ? 'bg-[#f4f7ea] border-2 border-[#aacb54] shadow-sm'
+              : 'bg-neutral-50 border border-neutral-200 hover:border-neutral-400'"
+          >
+            <div class="flex items-start sm:items-center gap-4">
+              <span
+                class="font-mono text-xs font-bold text-black px-2.5 py-1 rounded shrink-0"
+                [class]="layer.core ? 'bg-[#aacb54]' : 'bg-neutral-200'"
+              >{{ layer.badge }}</span>
+              <div>
+                @if (layer.core) {
+                  <div class="flex flex-wrap items-center gap-2">
+                    <h3 class="font-black text-black text-lg uppercase tracking-tight">{{ layer.title }}</h3>
+                    <span class="text-[10px] font-mono font-bold bg-black text-white px-2 py-0.5 rounded">USA SYNTHESIS</span>
+                  </div>
+                  <p class="text-neutral-700 text-sm mt-0.5">{{ layer.body }}</p>
+                } @else {
+                  <h3 class="font-bold text-black text-lg uppercase tracking-tight">{{ layer.title }}</h3>
+                  <p class="text-neutral-600 text-sm">{{ layer.body }}</p>
+                }
+              </div>
+            </div>
+            <div
+              class="font-mono text-xs uppercase text-right self-end lg:self-center shrink-0"
+              [class]="layer.core ? 'text-black' : 'text-neutral-500'"
+            >
+              <span
+                [class]="layer.accentMetric ? 'text-[#aacb54] font-bold' : layer.core ? 'font-bold text-black' : 'text-black font-semibold'"
+              >{{ layer.metric }}</span>
+              // {{ layer.metricNote }}
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Indian driving realities & benchmarks -->
+  <section class="py-24 bg-neutral-50 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-16" appReveal>
+        <div class="inline-flex items-center space-x-2 font-mono text-xs tracking-widest text-neutral-500 uppercase mb-3">
+          <span class="w-4 h-[2px] bg-[#aacb54]"></span>
+          <span>// SUB-CONTINENT CALIBRATION //</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-black">
+          Indian Driving Realities &amp; Performance Benchmarks
+        </h2>
+        <p class="mt-4 text-neutral-600">
+          Standard global PPF fails under extreme Indian climatic shock. CARTRON's specialized compound formulation is customized specifically for national highway friction, tropical humidity, and intense summer heats.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" appReveal>
+        @for (item of benchmarks; track item.title) {
+          <div class="p-6 rounded-xl bg-white border border-neutral-200 shadow-sm flex flex-col justify-between hover:border-neutral-400 transition">
+            <div>
+              <div
+                class="font-mono text-3xl font-black mb-3"
+                [class]="item.accent ? 'text-[#aacb54]' : 'text-black'"
+              >{{ item.value }}</div>
+              <h3 class="font-bold text-base uppercase tracking-tight text-black mb-2">{{ item.title }}</h3>
+              <p class="text-sm text-neutral-600 leading-relaxed">{{ item.body }}</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-neutral-100 font-mono text-[11px] text-neutral-500">
+              {{ item.foot }}
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- High-impact CTA -->
+  <section class="py-20 bg-black text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-dark opacity-30 pointer-events-none"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center" appReveal>
+      <div class="inline-flex items-center space-x-2 font-mono text-xs tracking-widest text-[#aacb54] uppercase mb-4">
+        <span class="w-3 h-[2px] bg-[#aacb54]"></span>
+        <span>// CLINICAL GRADE PROTECTION //</span>
+        <span class="w-3 h-[2px] bg-[#aacb54]"></span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-black tracking-tight uppercase leading-tight mb-6">
+        Ready to Wrap Your Machine in American TPU?
+      </h2>
+      <p class="text-neutral-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+        Schedule a surgical paint inspection or reserve your clinical installation bay in New Delhi. Certified master technicians, zero-dust cleanrooms.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          routerLink="/contact"
+          class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-neutral-200 text-black font-mono font-bold text-xs uppercase tracking-widest rounded transition-colors duration-200"
+        >SCHEDULE ATELIER VISIT</a>
+        <a
+          [href]="contact.phoneHref"
+          class="btn-grad w-full sm:w-auto px-8 py-4 text-white font-mono font-bold text-xs uppercase tracking-widest rounded flex items-center justify-center gap-2"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+          </svg>
+          <span>CALL DISTRIBUTION DIRECT</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer />
+<app-whatsapp-button />

@@ -1,47 +1,60 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { SITE_CONTACT } from '../../core/site-contact';
+
+interface FooterLink {
+  label: string;
+  /** Internal route (rendered with routerLink). */
+  path?: string;
+  fragment?: string;
+  /** External URL (opens in a new tab). */
+  href?: string;
+}
 
 interface FooterColumn {
   title: string;
-  links: { label: string; href: string; external?: boolean }[];
+  links: FooterLink[];
 }
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.html',
+  imports: [RouterLink],
 })
 export class Footer {
   protected readonly year = new Date().getFullYear();
+  protected readonly contact = SITE_CONTACT;
 
   protected readonly columns: FooterColumn[] = [
     {
       title: 'Company',
       links: [
-        { label: 'About us', href: '#about' },
-        { label: 'PPF Products', href: '#services' },
-        { label: 'Contact', href: '#contact' },
+        { label: 'About us', path: '/about' },
+        { label: 'PPF Products', path: '/products' },
+        { label: 'Contact', path: '/contact' },
       ],
     },
     {
       title: 'Protection',
       links: [
-        { label: 'Supercar Gallery', href: '#portfolio' },
-        { label: 'Warranty Registration', href: '#packages' },
-        { label: 'Aftercare Guide', href: '#packages' },
+        { label: 'Supercar Gallery', path: '/gallery' },
+        { label: 'Warranty Registration', path: '/', fragment: 'packages' },
+        { label: 'Aftercare Guide', path: '/', fragment: 'packages' },
       ],
     },
     {
       title: 'Social',
       links: [
-        { label: 'Instagram', href: 'https://instagram.com', external: true },
-        { label: 'LinkedIn', href: 'https://linkedin.com', external: true },
-        { label: 'YouTube', href: 'https://youtube.com', external: true },
+        { label: 'Instagram', href: SITE_CONTACT.instagram },
+        { label: 'LinkedIn', href: SITE_CONTACT.linkedin },
+        { label: 'YouTube', href: 'https://youtube.com' },
       ],
     },
     {
       title: 'Support',
       links: [
-        { label: 'Film Warranty Terms', href: '#' },
-        { label: 'Maintenance Policies', href: '#' },
+        { label: 'Film Warranty Terms', path: '/products', fragment: 'compare-matrix' },
+        { label: 'Maintenance Policies', path: '/products', fragment: 'tech-matrix' },
       ],
     },
   ];

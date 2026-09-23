@@ -9,12 +9,20 @@
           <ul class="space-y-2">
             @for (link of col.links; track link.label) {
               <li>
-                <a
-                  class="hover:text-brand-green transition"
-                  [href]="link.href"
-                  [target]="link.external ? '_blank' : null"
-                  [rel]="link.external ? 'noopener noreferrer' : null"
-                >{{ link.label }}</a>
+                @if (link.href) {
+                  <a
+                    class="hover:text-brand-green transition"
+                    [href]="link.href"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >{{ link.label }}</a>
+                } @else {
+                  <a
+                    class="hover:text-brand-green transition"
+                    [routerLink]="link.path"
+                    [fragment]="link.fragment"
+                  >{{ link.label }}</a>
+                }
               </li>
             }
           </ul>
@@ -29,10 +37,10 @@
           Address: 340 Sant Nagar East of Kailash, 110065 New Delhi
         </p>
         <p class="leading-relaxed mb-1">
-          <span class="text-zinc-500">Tel:</span> <a class="hover:text-brand-green transition" href="tel:7015919989">7015919989</a>
+          <span class="text-zinc-500">Tel:</span> <a class="hover:text-brand-green transition" [href]="contact.phoneHref">{{ contact.phoneDisplay }}</a>
         </p>
         <p class="leading-relaxed">
-          <span class="text-zinc-500">Email:</span> <a class="hover:text-brand-green transition" href="mailto:contact@cartron.in">contact&#64;cartron.in</a>
+          <span class="text-zinc-500">Email:</span> <a class="hover:text-brand-green transition" [href]="'mailto:' + contact.email">{{ contact.email }}</a>
         </p>
       </div>
     </div>

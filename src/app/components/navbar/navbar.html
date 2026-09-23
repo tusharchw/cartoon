@@ -1,33 +1,44 @@
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md [-webkit-backdrop-filter:blur(12px)] border-b border-zinc-100 shadow-sm transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
     <a
-      href="#home"
-      (click)="$event.preventDefault(); navigate('#home')"
+      routerLink="/"
+      (click)="onNavigate({ label: 'Home', path: '/' })"
       aria-label="CARTRON"
       class="flex items-center gap-2 group shrink-0"
     >
       <img
         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKqcZwE1RDPr4vRuWyd2CVYgxD-xdM5U5dmciv5rCOtoSdampkJ0_hlYPj-zQjIQ0EoKj5bn5uqWMSTCYICCVl7xmqERYwguTcYuaAr2CxS8-sGRMKID2EW0L8X-uVccnbdbhbS8Q6IcMp_OmocXUNc4iNLXf0WiWLuEh3OC0p0Cxs-v0dUBuXBPXItoaxUnE0WUJaEfti3BSLN4-wlnVrZPktSweNaqH7LbfXhyhRihTvHzQuGPfwaIcZiijBrz9zGg"
         alt="CARTRON"
-        class="h-8 sm:h-9 w-auto"
+        class="h-8 sm:h-9 w-auto transition-transform group-hover:scale-[1.02]"
       />
     </a>
 
     <nav aria-label="Main Navigation" class="hidden md:flex items-center space-x-8 text-[13px] font-semibold tracking-wide text-zinc-600">
-      @for (link of links; track link.href) {
+      @for (link of links; track link.label) {
         <a
-          [href]="link.href"
-          (click)="$event.preventDefault(); navigate(link.href)"
-          class="hover:text-black transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-green after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
-        >{{ link.label }}</a>
+          [routerLink]="link.path"
+          [fragment]="link.fragment"
+          routerLinkActive="nav-link-active"
+          [routerLinkActiveOptions]="activeOptions"
+          ariaCurrentWhenActive="page"
+          (click)="onNavigate(link)"
+          class="nav-link hover:text-black transition-colors relative py-1 flex items-center gap-1.5 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-green after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+        >
+          <span class="nav-dot relative hidden w-1.5 h-1.5">
+            <span class="absolute inset-0 rounded-full bg-lime-dark animate-ping"></span>
+            <span class="absolute inset-0 rounded-full bg-lime-dark"></span>
+          </span>
+          {{ link.label }}
+        </a>
       }
     </nav>
 
     <div class="flex items-center gap-3 sm:gap-4">
       <a
-        href="#contact"
-        (click)="$event.preventDefault(); navigate('#contact')"
-        class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-xs tracking-tight transition-all duration-300 transform hover:scale-105 text-white btn-grad shadow-md"
+        routerLink="/contact"
+        routerLinkActive="ring-2 ring-brand-green/50"
+        (click)="isMenuOpen.set(false)"
+        class="btn-shine-sweep hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full font-bold text-xs tracking-tight transition-all duration-300 transform hover:scale-105 text-white btn-grad shadow-md"
       >Contact Us</a>
 
       <button
@@ -57,16 +68,19 @@
     [class.max-h-0]="!isMenuOpen()"
   >
     <div class="px-4 py-3 flex flex-col gap-1">
-      @for (link of links; track link.href) {
+      @for (link of links; track link.label) {
         <a
-          [href]="link.href"
-          (click)="$event.preventDefault(); navigate(link.href)"
+          [routerLink]="link.path"
+          [fragment]="link.fragment"
+          routerLinkActive="bg-surface-muted text-black"
+          [routerLinkActiveOptions]="activeOptions"
+          (click)="onNavigate(link)"
           class="px-2 py-3 rounded-lg text-sm font-semibold text-zinc-700 hover:bg-surface-muted hover:text-black transition-colors"
         >{{ link.label }}</a>
       }
       <a
-        href="#contact"
-        (click)="$event.preventDefault(); navigate('#contact')"
+        routerLink="/contact"
+        (click)="isMenuOpen.set(false)"
         class="mt-2 inline-flex items-center justify-center px-6 py-3 rounded-full font-bold text-xs tracking-tight text-white btn-grad shadow-md"
       >Contact Us</a>
     </div>

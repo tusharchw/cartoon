@@ -9,6 +9,7 @@ import { isPlatformBrowser } from '@angular/common';
  */
 @Directive({
   selector: '[appReveal]',
+  host: { class: 'reveal' },
 })
 export class RevealOnScrollDirective implements AfterViewInit, OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);

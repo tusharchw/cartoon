@@ -1,0 +1,365 @@
+<app-navbar />
+
+<main class="pt-16 sm:pt-20 bg-[#fafafa] text-gray-900 selection:bg-lime selection:text-black">
+  <!-- Hero -->
+  <section class="relative pt-16 pb-20 md:pt-24 md:pb-28 hero-glow border-b border-neutral-200/80 overflow-hidden">
+    <div class="absolute top-1/4 left-1/2 w-[600px] max-w-[140vw] h-[350px] bg-lime/15 blur-[120px] rounded-full pointer-events-none animate-float-slow"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-neutral-300 text-[11px] md:text-xs font-bold uppercase tracking-widest text-neutral-700 mb-8 shadow-sm hover:border-lime-dark transition-colors" appReveal>
+        <span class="w-2 h-2 rounded-full bg-lime-dark animate-subtle-pulse shadow-[0_0_8px_#8CC600] shrink-0"></span>
+        AMERICAN TPU MOLECULAR CORE ARCHITECTURE // ISO 9001 CERTIFIED
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-neutral-900 uppercase leading-[1.05] max-w-5xl mx-auto delay-100" appReveal>
+        ENGINEERING <span class="text-refined-gradient font-black">INVISIBLE ARMOR</span>.<br />
+        DEFENDING EXOTIC PERFECTION.
+      </h1>
+
+      <p class="mt-6 text-base sm:text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto font-normal leading-relaxed delay-200" appReveal>
+        Cartron premium thermoplastic polyurethane (TPU) films engineered for high-stress Indian road environments, highway debris impacts, and international exotic automotive clear coats.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4 delay-300" appReveal>
+        <a
+          routerLink="/products"
+          fragment="compare-matrix"
+          class="btn-shine-sweep btn-refined-gradient px-8 py-3.5 rounded-full text-sm font-bold tracking-wider text-white active:scale-95 flex items-center gap-2 group shadow-lg"
+        >
+          <span>Compare Specs</span>
+          <span class="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-y-1">arrow_downward</span>
+        </a>
+        <a
+          routerLink="/products"
+          fragment="tech-matrix"
+          class="btn-shine-sweep px-8 py-3.5 rounded-full text-sm font-bold tracking-wider text-neutral-800 bg-white border border-neutral-300 hover:bg-neutral-50 hover:border-neutral-400 hover:-translate-y-0.5 active:scale-95 transition-all shadow-sm flex items-center gap-2 group"
+        >
+          <span>Technical Datasheets</span>
+          <span class="material-symbols-outlined text-base text-lime-dark transition-transform duration-300 group-hover:translate-x-1">description</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core telemetry metrics: running-gradient dark cards -->
+  <section class="py-14 md:py-20 bg-neutral-950 text-white relative overflow-hidden border-b border-neutral-800">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#112211,#0a0a0a_60%)] opacity-70 pointer-events-none"></div>
+    <div class="absolute -top-32 left-1/4 w-96 h-96 bg-lime/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute -bottom-32 right-1/4 w-96 h-96 bg-lime/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-12" appReveal>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime/10 border border-lime/30 text-[11px] font-bold uppercase tracking-widest text-lime mb-3 shadow-[0_0_15px_rgba(184,235,20,0.15)]">
+          <span class="w-1.5 h-1.5 rounded-full bg-lime animate-ping"></span>
+          // CORE TELEMETRY HIGHLIGHTS //
+        </div>
+        <p class="text-xs md:text-sm text-neutral-400 font-medium">Lab-certified impact absorption &amp; surface integrity benchmarks</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        @for (m of metrics; track m.title; let i = $index) {
+          <div class="running-border-wrapper" appReveal [style.transition-delay.ms]="i * 100">
+            <div class="h-full bg-gradient-to-b from-[#0e130e] via-[#090b09] to-[#060706] rounded-[1.2rem] p-6 tech-grid-pattern relative flex flex-col justify-between overflow-hidden group">
+              <div class="absolute -top-10 -right-10 w-28 h-28 bg-lime/15 rounded-full blur-2xl pointer-events-none group-hover:bg-lime/25 transition-all duration-500"></div>
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="w-10 h-10 rounded-xl bg-neutral-900/90 border border-lime/30 flex items-center justify-center text-lime group-hover:bg-lime group-hover:text-black transition-all duration-300 shadow-[0_0_12px_rgba(184,235,20,0.15)]">
+                    <span class="material-symbols-outlined text-xl">{{ m.icon }}</span>
+                  </span>
+                  <span class="text-[10px] font-mono font-extrabold tracking-wider text-lime bg-lime/15 border border-lime/30 px-2.5 py-0.5 rounded-md backdrop-blur-sm shadow-sm">{{ m.tag }}</span>
+                </div>
+                <div class="flex items-baseline gap-1.5">
+                  <span
+                    class="font-extrabold text-white tracking-tight group-hover:text-lime transition-colors duration-300"
+                    [class]="m.compact ? 'text-2xl lg:text-3xl' : 'text-3xl lg:text-4xl'"
+                  >{{ m.title }}</span>
+                  <span class="w-2 h-2 rounded-full bg-lime animate-subtle-pulse inline-block mb-1 shrink-0"></span>
+                </div>
+                <span class="text-xs uppercase font-bold text-neutral-300 tracking-wider mt-2 flex items-center gap-1.5">
+                  <span class="w-1 h-3 bg-lime rounded-full"></span>
+                  {{ m.label }}
+                </span>
+              </div>
+              <p class="mt-4 text-[11px] text-neutral-400 border-t border-neutral-800/80 pt-3">{{ m.note }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional lineup -->
+  <section class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16" appReveal>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-lime-dark block mb-2">// PRECISION SURFACE SERIES //</span>
+          <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">The Professional Lineup</h2>
+        </div>
+        <p class="mt-4 md:mt-0 text-sm md:text-base text-neutral-600 max-w-md">
+          Formulated with optical grade American aliphatic TPU resin to guarantee absolute protection without orange peel or haze.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        <!-- X210 -->
+        <article class="showcase-glow-card flex flex-col bg-neutral-50 border-2 border-lime/80 rounded-3xl p-8 relative shadow-lg group" appReveal>
+          <div class="absolute -top-3.5 left-8 px-4 py-1 bg-lime text-neutral-950 font-extrabold text-[11px] uppercase tracking-wider rounded-full shadow-md animate-subtle-pulse">
+            Most Popular Exotic Armor
+          </div>
+          <div class="mt-2 mb-6 flex justify-between items-center gap-2">
+            <span class="inline-block px-3 py-1 bg-lime-soft text-neutral-900 font-extrabold text-[11px] uppercase tracking-wider rounded-full border border-lime">SERIES X // RECOMMENDED</span>
+            <span class="text-xs font-bold text-neutral-500 tracking-wider uppercase text-right">UP TO 7 YRS LIFE</span>
+          </div>
+          <h3 class="text-3xl font-extrabold text-neutral-900 tracking-tight group-hover:text-lime-deep transition-colors">X210 SERIES</h3>
+          <p class="mt-2 text-sm text-neutral-600 min-h-[40px]">
+            Optical Ultra Gloss - Heavy-gauge multi-layer barrier engineered for hypercars and extreme gravel strike zones.
+          </p>
+          <div class="my-6 py-4 px-5 bg-white rounded-2xl border border-neutral-200 shadow-sm group-hover:border-lime transition-all duration-300">
+            <div class="text-2xl font-extrabold text-neutral-900">210 Micron <span class="text-sm font-semibold text-neutral-500">(8.3 Mil)</span></div>
+            <div class="text-xs text-lime-dark font-bold uppercase tracking-wider mt-0.5">Maximum Impact Thickness</div>
+          </div>
+          <ul class="space-y-3.5 text-sm text-neutral-700 flex-grow mb-8 divide-y divide-neutral-200/60">
+            @for (spec of x210Specs; track spec[0]) {
+              <li class="pt-2 flex justify-between gap-4">
+                <span class="text-neutral-500">{{ spec[0] }}</span>
+                <span class="font-bold text-right" [class.text-lime-deep]="spec[0] === 'Stone Chip Defense:'">{{ spec[1] }}</span>
+              </li>
+            }
+          </ul>
+          <a routerLink="/contact" class="btn-shine-sweep btn-refined-gradient w-full text-center py-3.5 rounded-full text-sm font-bold text-white active:scale-[0.98] shadow-md">Select X210 &amp; Configure</a>
+        </article>
+
+        <!-- P190 -->
+        <article class="showcase-glow-card flex flex-col bg-neutral-50 border border-neutral-200 rounded-3xl p-8 relative shadow-sm group" style="transition-delay: 100ms" appReveal>
+          <div class="mb-6 flex justify-between items-center gap-2">
+            <span class="inline-block px-3 py-1 bg-neutral-200 text-neutral-800 font-extrabold text-[11px] uppercase tracking-wider rounded-full">SERIES P // EXOTIC AERODYNAMIC</span>
+            <span class="text-xs font-bold text-neutral-500 tracking-wider uppercase text-right">UP TO 5 YRS LIFE</span>
+          </div>
+          <h3 class="text-3xl font-extrabold text-neutral-900 tracking-tight group-hover:text-neutral-700 transition-colors">P190 SERIES</h3>
+          <p class="mt-2 text-sm text-neutral-600 min-h-[40px]">
+            High-elasticity architecture formulated for deep aerodynamic air-ducts and hypercar complex curves.
+          </p>
+          <div class="my-6 py-4 px-5 bg-white rounded-2xl border border-neutral-200 shadow-sm group-hover:border-neutral-400 transition-all duration-300">
+            <div class="text-2xl font-extrabold text-neutral-900">190 Micron <span class="text-sm font-semibold text-neutral-500">(7.5 Mil)</span></div>
+            <div class="text-xs text-neutral-600 font-bold uppercase tracking-wider mt-0.5">High Performance Balance</div>
+          </div>
+          <ul class="space-y-3.5 text-sm text-neutral-700 flex-grow mb-8 divide-y divide-neutral-200/60">
+            @for (spec of p190Specs; track spec[0]) {
+              <li class="pt-2 flex justify-between gap-4">
+                <span class="text-neutral-500">{{ spec[0] }}</span>
+                <span class="font-bold text-right">{{ spec[1] }}</span>
+              </li>
+            }
+          </ul>
+          <a routerLink="/contact" class="btn-shine-sweep w-full text-center py-3.5 rounded-full text-sm font-bold text-neutral-900 bg-white border border-neutral-300 hover:bg-neutral-100 active:scale-[0.98] transition-all">
+            Select P190 &amp; Configure
+          </a>
+        </article>
+
+        <!-- Flagship Matte -->
+        <article class="showcase-glow-card flex flex-col bg-[#111317] text-white border border-lime/30 rounded-3xl p-8 relative matte-card-glow group" style="transition-delay: 200ms" appReveal>
+          <div class="mb-6 flex justify-between items-center gap-2">
+            <span class="inline-block px-3 py-1 bg-lime/20 text-lime font-extrabold text-[11px] uppercase tracking-wider rounded-full border border-lime/40">FLAGSHIP // STEALTH</span>
+            <span class="text-xs font-bold text-neutral-400 tracking-wider uppercase text-right">UP TO 6 YRS LIFE</span>
+          </div>
+          <h3 class="text-3xl font-extrabold text-white tracking-tight uppercase group-hover:text-lime transition-colors">FLAGSHIP MATTE</h3>
+          <p class="mt-2 text-sm text-neutral-300 min-h-[40px]">
+            Satin Elegance. Lasting Protection. Converts factory gloss paintwork into deep, non-reflective satin.
+          </p>
+          <div class="my-6 py-4 px-5 bg-[#181a1f] rounded-2xl border border-neutral-800 group-hover:border-lime/60 transition-all duration-300">
+            <div class="text-2xl font-extrabold text-white">190 Micron <span class="text-sm font-semibold text-neutral-400">(7.3 Mil)</span></div>
+            <div class="text-xs text-lime font-bold uppercase tracking-wider mt-0.5">Satin Stealth TPU Armor</div>
+          </div>
+          <ul class="space-y-3.5 text-sm text-neutral-300 flex-grow mb-8 divide-y divide-neutral-800">
+            @for (spec of matteSpecs; track spec[0]) {
+              <li class="pt-2 flex justify-between gap-4">
+                <span class="text-neutral-400">{{ spec[0] }}</span>
+                <span class="font-bold text-right" [class]="spec[0] === 'Elongation Break:' ? 'text-lime' : 'text-white'">{{ spec[1] }}</span>
+              </li>
+            }
+          </ul>
+          <a routerLink="/contact" class="btn-shine-sweep btn-refined-gradient w-full text-center py-3.5 rounded-full text-sm font-bold text-white active:scale-[0.98] shadow-md">Select Matte &amp; Configure</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison matrix -->
+  <section id="compare-matrix" class="py-20 md:py-24 bg-neutral-100 border-t border-b border-neutral-200 scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" appReveal>
+        <span class="text-xs font-bold uppercase tracking-widest text-lime-deep block mb-2">// TELEMETRY BENCHMARK //</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">Compare the Range</h2>
+        <p class="mt-3 text-neutral-600 text-sm md:text-base">Comprehensive lab verified metrics of Cartron thermoplastic protection layers.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-neutral-300" appReveal>
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[560px] text-left border-collapse">
+            <thead>
+              <tr class="bg-[#111317] text-white text-sm md:text-base">
+                <th class="py-5 px-6 font-bold uppercase tracking-wider text-xs md:text-sm text-neutral-400">FEATURE</th>
+                <th class="py-5 px-6 font-extrabold text-lime text-base md:text-lg text-center bg-[#1e2229] border-l border-r border-neutral-800 relative animate-column-pulse">
+                  <div class="absolute top-0 left-0 right-0 h-1 bg-lime shadow-[0_0_10px_#B8EB14]"></div>
+                  X210
+                </th>
+                <th class="py-5 px-6 font-bold text-white text-center">P190</th>
+                <th class="py-5 px-6 font-bold text-white text-center">E170</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-200 text-sm font-medium text-neutral-800">
+              @for (row of matrix; track row.feature) {
+                <tr class="table-spec-row transition-colors duration-200">
+                  <td class="py-4 px-6 font-semibold text-neutral-900">{{ row.feature }}</td>
+                  <td class="py-4 px-6 text-center font-bold text-neutral-950 bg-lime-soft/80 border-l border-r border-neutral-200">
+                    @if (isText(row.x210)) {
+                      {{ row.x210 }}
+                    } @else {
+                      <span class="matrix-check text-lime-dark font-black text-lg" aria-label="Yes">✓</span>
+                    }
+                  </td>
+                  @for (cell of [row.p190, row.e170]; track $index) {
+                    <td class="py-4 px-6 text-center">
+                      @if (isText(cell)) {
+                        <span class="text-neutral-700">{{ cell }}</span>
+                      } @else if (cell) {
+                        <span class="matrix-check text-neutral-800 font-bold text-base" aria-label="Yes">✓</span>
+                      } @else {
+                        <span class="text-neutral-400 font-bold text-base" aria-label="No">✗</span>
+                      }
+                    </td>
+                  }
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Warranty assurance with running border -->
+      <div class="mt-12 running-border-wrapper" style="transition-delay: 100ms" appReveal>
+        <div class="bg-[#111317] text-white rounded-[1.2rem] p-8 md:p-10 shadow-2xl relative overflow-hidden">
+          <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-lime/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div class="flex items-start gap-5">
+              <div class="p-3.5 bg-lime/10 border border-lime/40 rounded-2xl text-lime flex-shrink-0 shadow-lg shadow-lime/10 animate-subtle-pulse">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-extrabold tracking-tight text-white">
+                  Cartron <span class="text-refined-gradient font-black">Warranty Assurance</span>
+                </h3>
+                <p class="mt-2 text-sm text-neutral-300 leading-relaxed max-w-2xl">
+                  Every Cartron Paint Protection Film is backed by a comprehensive 3-5 Year Manufacturer Warranty against Yellowing, Cracking, Delamination, and Manufacturing Defects.
+                </p>
+                <p class="mt-2 text-xs text-neutral-400">
+                  When professionally installed and properly maintained, Cartron films are engineered to deliver long-lasting performance under Indian driving conditions.
+                </p>
+              </div>
+            </div>
+
+            <div class="w-full md:w-auto flex-shrink-0 bg-[#181a1f] p-4 rounded-2xl border border-neutral-800 shadow-inner">
+              <label class="block text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2" for="roll-id">Verify Roll Authenticity</label>
+              <form class="flex gap-2" (submit)="verifyRoll($event, rollInput)">
+                <input
+                  #rollInput
+                  id="roll-id"
+                  type="text"
+                  required
+                  placeholder="e.g. CRT-X21-99824"
+                  (input)="rollStatus.set('idle')"
+                  class="bg-neutral-900 border border-neutral-700 text-white placeholder-neutral-500 rounded-full px-4 py-2 text-xs focus:ring-1 focus:ring-lime focus:border-lime flex-1 md:w-44 outline-none transition-colors uppercase"
+                />
+                <button type="submit" class="btn-shine-sweep btn-refined-gradient text-white font-bold text-xs uppercase px-4 py-2 rounded-full active:scale-95 shadow-md">Verify</button>
+              </form>
+              @if (rollStatus() === 'valid') {
+                <p class="mt-2 text-[11px] text-lime max-w-60" role="status">
+                  Serial format recognised.
+                  <a class="underline hover:text-white" [href]="contact.whatsappHref" target="_blank" rel="noopener noreferrer">Confirm registration with our desk →</a>
+                </p>
+              } @else if (rollStatus() === 'invalid') {
+                <p class="mt-2 text-[11px] text-red-400 max-w-60" role="alert">Serial not recognised. Check the code printed on the roll core.</p>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Film anatomy / datasheet -->
+  <section id="tech-matrix" class="py-20 md:py-24 bg-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16" appReveal>
+        <span class="text-xs font-bold uppercase tracking-widest text-lime-deep block mb-2">// MATERIAL ENGINEERING &amp; DATASHEET //</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">Anatomy of the Film Matrix</h2>
+        <p class="mt-4 text-neutral-600 text-base">
+          Four coordinated nano-layers engineered to bond seamlessly with exotic clear coats and neutralize high-velocity road hazards.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        @for (layer of filmLayers; track layer.title; let i = $index) {
+          <div
+            class="showcase-glow-card rounded-2xl p-6 relative"
+            [class]="layer.core ? 'border-2 border-lime bg-lime-soft/30 shadow-sm' : 'border border-neutral-200 bg-neutral-50 hover:border-lime-dark'"
+            [style.transition-delay.ms]="i * 100"
+            appReveal
+          >
+            <div class="text-xs font-bold uppercase tracking-wider text-lime-deep mb-1 flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-lime-dark" [class.animate-ping]="layer.core"></span>
+              {{ layer.tag }}
+            </div>
+            <h3 class="text-lg font-bold text-neutral-900">{{ layer.title }}</h3>
+            <p class="mt-2 text-xs leading-relaxed" [class]="layer.core ? 'text-neutral-700' : 'text-neutral-600'">{{ layer.body }}</p>
+          </div>
+        }
+      </div>
+
+      <div class="mt-12 bg-neutral-900 text-white rounded-2xl p-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center border border-neutral-800 shadow-xl" appReveal>
+        @for (t of telemetry; track t.label) {
+          <div class="hover:-translate-y-1.5 transition-all duration-300 group">
+            <div class="text-2xl font-extrabold text-lime group-hover:scale-105 transition-transform">{{ t.value }}</div>
+            <div class="text-[11px] uppercase tracking-wider text-neutral-400 mt-1 font-semibold">{{ t.label }}</div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Acid-lime CTA -->
+  <section
+    id="quote"
+    class="py-20 md:py-24 text-white relative overflow-hidden shadow-2xl"
+    style="background: linear-gradient(135deg, rgb(164, 203, 56) 0%, rgb(143, 174, 50) 60%, rgb(104, 113, 94) 100%);"
+  >
+    <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[11px] font-bold uppercase tracking-widest text-white mb-6 shadow-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>PRECISION APPLICATION &amp; INSTALLATION
+      </div>
+      <h2 class="text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight text-white leading-none drop-shadow-sm" appReveal>
+        READY TO WRAP YOUR MACHINE IN AMERICAN TPU?
+      </h2>
+      <p class="mt-6 text-base sm:text-lg md:text-xl font-medium text-neutral-100 max-w-2xl mx-auto drop-shadow-sm delay-100" appReveal>
+        Contact our master studio for roll allocation, plotter pre-cut templating, or full edge-wrapped atelier installation.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4 delay-200" appReveal>
+        <a
+          routerLink="/contact"
+          class="btn-shine-sweep px-9 py-4 rounded-full text-sm md:text-base font-extrabold tracking-wider text-neutral-950 bg-white hover:bg-neutral-100 hover:brightness-105 hover:scale-[1.02] hover:shadow-[0_0_24px_rgba(255,255,255,0.35)] active:scale-95 transition-all duration-300 shadow-xl"
+        >SCHEDULE ATELIER VISIT</a>
+        <a
+          [href]="contact.phoneHref"
+          class="btn-shine-sweep px-9 py-4 rounded-full text-sm md:text-base font-extrabold tracking-wider text-white bg-neutral-950 hover:bg-neutral-900 border border-neutral-700 hover:brightness-110 hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-xl"
+        >CALL STUDIO DIRECT</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer />
+<app-whatsapp-button />

@@ -1,0 +1,340 @@
+<app-navbar />
+
+<main class="pt-16 sm:pt-20 bg-[#f8f9fa] text-[#12161a]">
+  <!-- Ambient status ticker -->
+  <div class="w-full bg-[#11161b] text-[#99a6b2] text-[11px] font-bold tracking-[0.18em] py-2 border-b border-[#232a33] overflow-hidden select-none">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="w-2 h-2 rounded-full bg-electric animate-ping shrink-0"></span>
+        <span class="text-white tracking-widest truncate">• AMERICAN TPU MOLECULAR CORE ARCHITECTURE // ISO 9001 CERTIFIED // CALIBRATED FOR EXOTIC SUPERCARS</span>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-[10px] tracking-widest text-[#7c8b99] shrink-0">
+        <span>BAY 01 // DELHI NCR</span>
+        <span class="text-lime">LIVE HUMIDITY: 46% RH</span>
+        <span class="hidden xl:inline">OPTICAL GRADE: X210 HEAVY GAUGE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="relative bg-white pt-14 pb-16 border-b border-[#e8ecef] overflow-hidden">
+    <div class="absolute -right-24 top-0 w-[550px] h-[550px] rounded-full bg-gradient-to-br from-lime/15 via-electric/5 to-transparent blur-3xl pointer-events-none"></div>
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">
+      <div class="max-w-4xl space-y-6" appReveal>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f3f6f8] border border-[#dee4e8] text-[11px] font-bold tracking-widest text-[#414e5b] uppercase">
+          <span class="w-2 h-2 rounded-full bg-electric shadow-[0_0_10px_#00E659]"></span>
+          <span>VERIFIED MASTER ATELIER PORTFOLIO</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-[66px] leading-[1.05] tracking-tight font-extrabold uppercase text-[#101418]">
+          EXOTIC PRECISION. <br />
+          <span class="text-gradient-olive-grey font-black inline-block">FLAWLESS DEFENSE.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-[#536270] leading-relaxed max-w-2xl font-normal">
+          Witness real master atelier installations across track-honed hypercars and custom exotic collectors. Protected exclusively with Cartron American Aliphatic TPU.
+        </p>
+        <div class="pt-2 flex flex-wrap items-center gap-4">
+          <a
+            routerLink="/gallery"
+            fragment="supercar-carousel"
+            class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-sm uppercase tracking-wider btn-gradient-olive-grey active:scale-[0.98]"
+          >
+            <span>Explore Supercars</span>
+            <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+          </a>
+          <a
+            routerLink="/gallery"
+            fragment="interactive-comparison"
+            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm uppercase tracking-wider text-[#222930] bg-[#eff2f5] hover:bg-[#e3e8ec] transition-colors"
+          >
+            <span>View Clarity Benchmark</span>
+            <span class="material-symbols-outlined text-[18px]">tune</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conventional PPF vs Cartron — interactive laser comparison -->
+  <section id="interactive-comparison" class="bg-[#0c1014] text-white py-20 relative overflow-hidden border-b border-[#202731]">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12" appReveal>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-electric block">// OPTICAL CLARITY &amp; DEFLECTION BENCHMARK //</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-2">
+            CONVENTIONAL PPF VS. <span class="text-gradient-olive-grey font-black">CARTRON X210</span>
+          </h2>
+          <p class="text-sm md:text-base text-[#8b98a5] mt-2 max-w-2xl">
+            Drag the illuminated laser slider across the micro-optic surface to see real-world texture elimination, instantaneous scratch self-healing, and true paint depth transmission.
+          </p>
+        </div>
+        <div class="flex items-center bg-[#182028] p-1.5 rounded-full border border-[#27323e] self-start lg:self-end" role="group" aria-label="Comparison presets">
+          @for (preset of presets; track preset.value) {
+            <button
+              type="button"
+              (click)="snapTo(preset.value)"
+              [attr.aria-pressed]="split() === preset.value"
+              class="px-3 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-200"
+              [class]="split() === preset.value ? 'btn-gradient-olive-grey shadow-md' : 'text-[#a1b0bf] hover:text-white hover:bg-white/5'"
+            >{{ preset.label }}</button>
+          }
+        </div>
+      </div>
+
+      <div
+        #compareBox
+        class="relative w-full h-[400px] sm:h-[480px] lg:h-[540px] rounded-2xl overflow-hidden select-none shadow-2xl border border-[#222b36] cursor-ew-resize touch-pan-y"
+        (pointerdown)="onPointerDown($event)"
+        (pointermove)="onPointerMove($event)"
+        (pointerup)="onPointerUp()"
+        (pointercancel)="onPointerUp()"
+      >
+        <!-- After: Cartron X210 -->
+        <div
+          class="absolute inset-0 bg-cover bg-center"
+          style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0RP3TxUY8RHnCFh9emVt2lWKqD1Oygezf_vcC-P_BW8EKYNh-7LAzHFh5EfMI0wFwm1nWfUOGhiN2OCROnzQE9RK2zfZ-MKdtcAu8DoUEKu6kR-l9YJn52sOyIaBkj49bajfxlIMrNNH_Y9cvYp79cMtTHm5X1vM3-FYLFdGi7Z1T-I4yTxrvkDRitlUCU5kzqMc8ZSdhN-NK3xFC6En0HR9GiHZvp7r0ZXYzuDyVV00Z4KkYu4mC')"
+        >
+          <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-10 bg-black/80 backdrop-blur-md px-4 sm:px-5 py-2.5 rounded-xl border border-electric/40 flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-electric shadow-[0_0_10px_#00E659] shrink-0"></span>
+            <div>
+              <span class="text-[10px] sm:text-[11px] font-bold text-white tracking-widest uppercase block">CARTRON X210 ALIPHATIC TPU</span>
+              <span class="text-[10px] text-electric font-medium tracking-wider">ZERO ORANGE PEEL // 98.4 GU LIQUID GLOSS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Before: conventional PPF (clipped to the divider) -->
+        <div
+          class="absolute inset-0 bg-cover bg-center saturate-75 brightness-90 contrast-105"
+          [style.transition]="isSnapping() ? 'clip-path 0.4s ease' : null"
+          [style.clip-path]="clipPath()"
+          style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9gPwRhxluhksc7tF7sFOXWvM-weYJy6TD9Wit7jVGN1-VIC4SUy2iR3Sj_Su9YmmGlqUuw-BDralg02Mg5S3qiZEqlUw7r7NZZnineIBrB65yN55DiWur2XsYfgKNxuh9u-qxr1RLefxNewE9rmWiNrZvzHRkvcKE2pj5SgdXhvzOxLRyxCg9wWC_eZfO_IzyHIxzQZC1UDgZfT02adomq7JmjdiGnxB_y67W7UVAyDh_3AoN6XEY')"
+        >
+          <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-10 bg-black/80 backdrop-blur-md px-4 sm:px-5 py-2.5 rounded-xl border border-red-500/40 flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_10px_#ef4444] shrink-0"></span>
+            <div>
+              <span class="text-[10px] sm:text-[11px] font-bold text-white tracking-widest uppercase block">CONVENTIONAL PPF / FACTORY CLEAR</span>
+              <span class="text-[10px] text-red-400 font-medium tracking-wider">ORANGE PEEL HAZE // SWIRL PRONE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Laser divider + scrubber -->
+        <div
+          class="laser-line laser-scan flex items-center justify-center -translate-x-1/2 z-20"
+          [style.transition]="isSnapping() ? 'left 0.4s ease' : null"
+          [style.left.%]="split()"
+        >
+          <div
+            role="slider"
+            tabindex="0"
+            aria-label="Comparison divider"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            [attr.aria-valuenow]="splitRounded()"
+            (keydown)="onSliderKey($event)"
+            class="w-12 h-12 shrink-0 rounded-full bg-[#11161c] border-2 border-lime shadow-[0_0_20px_rgba(184,235,20,0.8)] flex items-center justify-center text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-lime/40 transition-transform"
+            [class.scale-110]="isDragging()"
+          >
+            <span class="material-symbols-outlined text-[22px] text-lime">drag_handle</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated metric meters -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8" appReveal>
+        @for (m of metrics; track m.title) {
+          <div class="bg-[#141a22] border border-[#232d3a] rounded-xl p-5 relative dark-card-hover-lift">
+            <div class="flex items-center justify-between gap-2 text-xs font-bold uppercase tracking-wider text-[#8a98a6] mb-3">
+              <span>{{ m.title }}</span>
+              <span class="text-electric text-right">{{ m.delta }}</span>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between gap-2 text-xs">
+                <span class="text-[#718090]">{{ m.baseLabel }}</span>
+                <span class="font-bold text-right" [class]="m.baseText">{{ m.baseValue }}</span>
+              </div>
+              <div class="w-full h-1.5 rounded-full bg-[#202934] overflow-hidden">
+                <div class="meter-fill h-full rounded-full" [class]="m.baseBar" [style.--w]="m.baseWidth + '%'"></div>
+              </div>
+              <div class="flex items-center justify-between gap-2 text-xs pt-1">
+                <span class="text-lime font-semibold">{{ m.ourLabel }}</span>
+                <span class="font-extrabold text-lime text-right">{{ m.ourValue }}</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-[#202934] overflow-hidden">
+                <div class="meter-fill h-full bg-gradient-to-r from-lime to-electric rounded-full" [style.--w]="m.ourWidth + '%'"></div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-stage installation cycle -->
+  <section class="py-20 bg-white border-b border-[#e5e9ed]">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4" appReveal>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#006e26] block">// SURGICAL CRAFTSMANSHIP // ZERO COMPROMISE</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight uppercase mt-2 text-[#11161c]">THE 4-STAGE INSTALLATION CYCLE</h2>
+        </div>
+        <p class="text-sm md:text-base text-[#5a6773] max-w-md font-normal">
+          Every exotic undergoes clinical preparation inside our Class-100 cleanroom bays to prevent microscopic dust entrapment.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" appReveal>
+        @for (step of steps; track step.n) {
+          <div class="bg-[#f8f9fb] border border-[#e3e8ec] p-6 rounded-2xl hover:border-lime-dark relative flex flex-col justify-between group card-hover-lift">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-3xl font-extrabold text-[#11161b] group-hover:text-[#006e26] transition-colors">{{ step.n }}</span>
+                <div class="w-10 h-10 rounded-xl bg-white border border-[#dee3e7] flex items-center justify-center text-[#11161b] group-hover:bg-lime transition-colors">
+                  <span class="material-symbols-outlined text-[22px]">{{ step.icon }}</span>
+                </div>
+              </div>
+              <h3 class="text-lg font-bold uppercase text-[#11161b] mb-2">{{ step.title }}</h3>
+              <p class="text-sm text-[#5d6b78] leading-relaxed">{{ step.body }}</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#dee4e8] text-[11px] font-bold tracking-widest text-[#006e26] uppercase">{{ step.foot }}</div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-width supercar carousel -->
+  <section id="supercar-carousel" class="py-20 bg-[#101419] text-white overflow-hidden relative">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4" appReveal>
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-lime mb-2">
+            <span class="w-2 h-2 rounded-full bg-lime animate-pulse"></span>
+            <span>FLAGSHIP ATELIER BUILDS // FULL-BLEED SHOWCASE</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight">VERIFIED SUPERCAR PORTFOLIO</h2>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="text-sm font-bold tracking-widest text-[#8a9aa8]" aria-live="polite">
+            <span class="text-white text-lg">{{ pad(current() + 1) }}</span> / {{ pad(builds.length) }}
+          </div>
+          <div class="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label="Previous build"
+              (click)="prev()"
+              class="w-12 h-12 rounded-full border border-[#2b3642] bg-[#171e25] hover:bg-lime hover:text-black transition-colors flex items-center justify-center text-white"
+            ><span class="material-symbols-outlined text-[20px]">arrow_back</span></button>
+            <button
+              type="button"
+              aria-label="Next build"
+              (click)="next()"
+              class="w-12 h-12 rounded-full border border-[#2b3642] bg-[#171e25] hover:bg-lime hover:text-black transition-colors flex items-center justify-center text-white"
+            ><span class="material-symbols-outlined text-[20px]">arrow_forward</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative w-full rounded-2xl overflow-hidden bg-[#161d24] border border-[#26313d] shadow-2xl min-h-[560px] dark-card-hover-lift">
+        @for (build of [currentBuild()]; track build.name) {
+          <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[560px] animate-slide-in">
+            <div class="lg:col-span-7 relative h-[300px] sm:h-[360px] lg:h-auto overflow-hidden">
+              <img [src]="build.image" [alt]="build.name" class="absolute inset-0 w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#161d24] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#161d24]"></div>
+              <div class="absolute top-6 left-6">
+                <span class="px-4 py-1.5 rounded-full bg-black/75 backdrop-blur-md text-lime font-bold text-xs tracking-wider border border-lime/30 uppercase">{{ build.badge }}</span>
+              </div>
+            </div>
+            <div class="lg:col-span-5 p-6 sm:p-8 lg:p-12 flex flex-col justify-between">
+              <div class="space-y-4">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="text-xs font-bold text-[#8a9aa8] tracking-widest uppercase">{{ build.origin }}</span>
+                  <span class="text-xs font-bold text-lime text-right">{{ build.bay }}</span>
+                </div>
+                <h3 class="text-3xl lg:text-4xl font-extrabold uppercase tracking-tight text-white">{{ build.name }}</h3>
+                <p class="text-sm lg:text-base text-[#9bb0c1] leading-relaxed">{{ build.body }}</p>
+                <div class="grid grid-cols-2 gap-3 pt-4">
+                  @for (spec of build.specs; track spec.label) {
+                    <div class="p-3.5 rounded-xl bg-[#0f141a] border border-[#222c38]">
+                      <span class="text-[10px] text-[#6e8091] font-bold uppercase block tracking-wider">{{ spec.label }}</span>
+                      <span class="text-sm font-bold" [class]="spec.accent ? 'text-lime' : 'text-white'">{{ spec.value }}</span>
+                    </div>
+                  }
+                </div>
+              </div>
+              <div class="pt-8 flex items-center justify-between gap-4">
+                <a
+                  routerLink="/contact"
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider btn-gradient-olive-grey active:scale-[0.98]"
+                >
+                  <span>Reserve Chassis Slot</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </a>
+                <span class="text-xs font-semibold text-[#6e8091] text-right">{{ build.footnote }}</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="mt-8 flex items-center justify-center gap-2 flex-wrap" role="tablist" aria-label="Supercar builds">
+        @for (build of builds; track build.name; let i = $index) {
+          <button
+            type="button"
+            role="tab"
+            [attr.aria-selected]="current() === i"
+            (click)="goTo(i)"
+            class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all"
+            [class]="current() === i ? 'btn-gradient-olive-grey shadow-md' : 'bg-[#1b222b] text-[#93a5b5] hover:text-white'"
+          >{{ build.tab }}</button>
+        }
+      </div>
+
+      <!-- Preload remaining build images so switching is instant -->
+      <div class="hidden" aria-hidden="true">
+        @for (build of builds; track build.name) {
+          <img [src]="build.image" alt="" loading="lazy" />
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Acid-lime CTA -->
+  <section class="w-full bg-gradient-to-r from-lime via-[#a2dc07] to-lime-dark py-20 text-black relative overflow-hidden">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-10" appReveal>
+        <div class="space-y-4 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/15 text-xs font-bold tracking-widest text-black uppercase">
+            <span class="w-2 h-2 rounded-full bg-black"></span>
+            <span>ATELIER RESERVATIONS OPEN // CLEANROOM BAY 01 &amp; 02</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight leading-tight">
+            READY TO WRAP YOUR MACHINE IN <span class="text-gradient-olive-grey font-black">AMERICAN TPU?</span>
+          </h2>
+          <p class="text-base sm:text-lg font-medium text-black/85">
+            Schedule a surgical paint inspection or reserve your clinical installation bay in New Delhi. Bespoke pre-cut templates customized for your exotic chassis.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a
+            routerLink="/contact"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider bg-white text-black hover:bg-[#f2f4f7] shadow-lg transition-transform hover:scale-[1.02]"
+          >
+            <span>Schedule Atelier Visit</span>
+            <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+          </a>
+          <a
+            [href]="contact.phoneHref"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider bg-[#11161b] text-white hover:bg-black shadow-lg transition-transform hover:scale-[1.02]"
+          >
+            <span>Call Studio Direct</span>
+            <span class="material-symbols-outlined text-[20px]">call</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer />
+<app-whatsapp-button />
