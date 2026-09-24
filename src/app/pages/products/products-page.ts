@@ -5,6 +5,7 @@ import { Footer } from '../../components/footer/footer';
 import { WhatsappButton } from '../../components/whatsapp-button/whatsapp-button';
 import { RevealOnScrollDirective } from '../../core/reveal-on-scroll.directive';
 import { SITE_CONTACT } from '../../core/site-contact';
+import { ScrollTextRevealDirective } from '../../core/scroll-text-reveal.directive';
 
 type MatrixCell = string | boolean;
 
@@ -18,7 +19,7 @@ interface MatrixRow {
 @Component({
   selector: 'app-products-page',
   templateUrl: './products-page.html',
-  imports: [Navbar, Footer, WhatsappButton, RevealOnScrollDirective, RouterLink],
+  imports: [ScrollTextRevealDirective, Navbar, Footer, WhatsappButton, RevealOnScrollDirective, RouterLink],
 })
 export class ProductsPage {
   protected readonly contact = SITE_CONTACT;

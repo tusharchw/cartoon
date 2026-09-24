@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RevealOnScrollDirective } from '../../core/reveal-on-scroll.directive';
+import { ScrollTextRevealDirective } from '../../core/scroll-text-reveal.directive';
 
 interface PackageCard {
   title: string;
@@ -10,7 +11,7 @@ interface PackageCard {
 @Component({
   selector: 'app-packages',
   templateUrl: './packages.html',
-  imports: [RevealOnScrollDirective],
+  imports: [ScrollTextRevealDirective, RevealOnScrollDirective],
 })
 export class Packages {
   protected readonly cards: PackageCard[] = [

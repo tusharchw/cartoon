@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RevealOnScrollDirective } from '../../core/reveal-on-scroll.directive';
+import { ScrollTextRevealDirective } from '../../core/scroll-text-reveal.directive';
 
 interface Testimonial {
   quote: string;
@@ -11,7 +12,7 @@ interface Testimonial {
 @Component({
   selector: 'app-testimonials',
   templateUrl: './testimonials.html',
-  imports: [RevealOnScrollDirective],
+  imports: [ScrollTextRevealDirective, RevealOnScrollDirective],
 })
 export class Testimonials {
   protected readonly rowDark: Testimonial[] = [

@@ -25,11 +25,12 @@ export class SmoothScrollService implements OnDestroy {
     }
 
     this.lenis = new Lenis({
-      duration: 1.6,
-      easing: (t: number) => Math.min(1, 1 - Math.pow(2, -10 * t)),
+      // Tuned to match fotog.in: long 2s glide with an expo-out ease.
+      duration: 2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 0.65,
-      touchMultiplier: 1,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.1,
       syncTouch: false,
     });
 

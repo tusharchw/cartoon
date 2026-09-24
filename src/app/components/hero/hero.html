@@ -1,67 +1,72 @@
-<main
-  id="home"
-  class="relative overflow-hidden border-b border-zinc-100 pt-24 pb-14 sm:pt-32 sm:pb-16 md:pt-44 md:pb-24 min-h-[92svh] md:min-h-[100svh] flex flex-col justify-center"
->
-  <!-- Background layer: gradient placeholder is ALWAYS present, so there is
-       never a blank frame while landing.mp4 loads; the video crossfades in
-       on top once it can play. -->
-  <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-    <div class="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-brand-green-soft"></div>
+<main id="home" class="border-b border-zinc-100">
+  <section class="section-screen relative overflow-hidden pt-24 pb-14 sm:pt-32 sm:pb-16 md:pt-44 md:pb-24">
+    <!-- Background layer: gradient placeholder is ALWAYS present, so there is
+         never a blank frame while landing.mp4 loads; the video crossfades in
+         on top once it can play. -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-brand-green-soft"></div>
 
-    <video
-      #heroVideo
-      class="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1400ms] ease-out"
-      [class.opacity-0]="!videoReady()"
-      [class.opacity-100]="videoReady()"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-      (canplay)="onVideoReady()"
-      (loadeddata)="onVideoReady()"
-    >
-      <source src="landing.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="absolute -top-24 right-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-brand-green/20 rounded-full blur-3xl pointer-events-none z-0"></div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
-    <div class="max-w-4xl py-8 sm:py-12 md:py-16" appReveal>
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-green/15 border border-brand-green/40 text-white text-xs font-bold tracking-wide mb-6">
-        <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
-        ★ India's #1 Ultra-Gloss &amp; Matte PPF Studio
-      </div>
-
-      <h1
-        class="font-extrabold tracking-tight text-4xl sm:text-6xl md:text-7xl leading-[1.08] text-white select-none"
-        style="letter-spacing: -0.04em;"
+      <video
+        #heroVideo
+        class="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1400ms] ease-out"
+        [class.opacity-0]="!videoReady()"
+        [class.opacity-100]="videoReady()"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        (canplay)="onVideoReady()"
+        (loadeddata)="onVideoReady()"
       >
-        Shield.<br>
-        Shine.<br>
-        <span class="relative inline-block">
-          Sustain.
-          <span class="absolute bottom-2 left-0 w-full h-3.5 bg-brand-green/40 -z-10 rounded"></span>
-        </span>
-      </h1>
+        <source src="landing.mp4" type="video/mp4">
+      </video>
 
-      <p class="mt-6 text-sm sm:text-base text-white/90 max-w-2xl font-normal leading-relaxed">
-        Self-healing instant TPU paint protection film engineered for Ferrari, Porsche, Lamborghini &amp; exotic supercars. Defend against rock chips, scratches &amp; environmental damage.
-      </p>
+      <!-- Black overlay: darkens the video so the white headline reads clearly, while the footage stays visible.
+           Base tint + a left-weighted gradient (heaviest behind the headline) + a bottom fade. -->
+      <div class="absolute inset-0 bg-black/55"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+    </div>
 
-      <div class="mt-8 flex flex-wrap items-center gap-4">
-        <a
-          href="#contact"
-          (click)="$event.preventDefault(); scrollToContact()"
-          class="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-extrabold text-xs tracking-tight transition-all duration-300 transform hover:scale-105 text-white btn-grad shadow-lg"
-        >Book PPF Installation</a>
+    <div class="absolute -top-24 right-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-brand-green/20 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
+      <div class="max-w-4xl py-8 sm:py-12 md:py-16" appReveal>
+        <!-- <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-green/15 border border-brand-green/40 text-white text-xs font-bold tracking-wide mb-6">
+          <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+          ★ India's #1 Ultra-Gloss &amp; Matte PPF Studio
+        </div> -->
+
+        <h1
+          class="font-extrabold tracking-tight text-4xl sm:text-6xl md:text-7xl leading-[1.08] text-white select-none drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]"
+          style="letter-spacing: -0.04em;"
+        >
+          Shield.<br>
+          Shine.<br>
+          <span class="relative inline-block">
+            Sustain.
+            <span class="absolute bottom-2 left-0 w-full h-3.5 bg-brand-green/40 -z-10 rounded"></span>
+          </span>
+        </h1>
+
+        <!-- <p class="mt-6 text-sm sm:text-base text-white/90 max-w-2xl font-normal leading-relaxed">
+          Self-healing instant TPU paint protection film engineered for Ferrari, Porsche, Lamborghini &amp; exotic supercars. Defend against rock chips, scratches &amp; environmental damage.
+        </p> -->
+
+        <!-- <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href="#contact"
+            (click)="$event.preventDefault(); scrollToContact()"
+            class="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-extrabold text-xs tracking-tight transition-all duration-300 transform hover:scale-105 text-white btn-grad shadow-lg"
+          >Book PPF Installation</a>
+        </div> -->
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Partner brands infinite marquee -->
-  <div class="mt-8 border-y border-zinc-200 bg-zinc-50/80 py-5 overflow-hidden relative z-10">
+  <!-- Partner brands infinite marquee (sits below the video) -->
+  <div class="border-b border-zinc-200 bg-zinc-50 py-5 overflow-hidden relative">
     <div class="flex items-center gap-12 animate-marquee hover:[animation-play-state:paused] whitespace-nowrap select-none">
       @for (brand of [...brands, ...brands]; track $index) {
         <div class="flex items-center justify-center px-6 sm:px-8 opacity-75 hover:opacity-100 transition-opacity">

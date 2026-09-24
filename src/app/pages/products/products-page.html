@@ -2,7 +2,7 @@
 
 <main class="pt-16 sm:pt-20 bg-[#fafafa] text-gray-900 selection:bg-lime selection:text-black">
   <!-- Hero -->
-  <section class="relative pt-16 pb-20 md:pt-24 md:pb-28 hero-glow border-b border-neutral-200/80 overflow-hidden">
+  <section class="section-screen relative pt-16 pb-20 md:pt-24 md:pb-28 hero-glow border-b border-neutral-200/80 overflow-hidden">
     <div class="absolute top-1/4 left-1/2 w-[600px] max-w-[140vw] h-[350px] bg-lime/15 blur-[120px] rounded-full pointer-events-none animate-float-slow"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -42,7 +42,7 @@
   </section>
 
   <!-- Core telemetry metrics: running-gradient dark cards -->
-  <section class="py-14 md:py-20 bg-neutral-950 text-white relative overflow-hidden border-b border-neutral-800">
+  <section class="section-screen py-14 md:py-20 bg-neutral-950 text-white relative overflow-hidden border-b border-neutral-800">
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#112211,#0a0a0a_60%)] opacity-70 pointer-events-none"></div>
     <div class="absolute -top-32 left-1/4 w-96 h-96 bg-lime/10 rounded-full blur-[140px] pointer-events-none"></div>
     <div class="absolute -bottom-32 right-1/4 w-96 h-96 bg-lime/10 rounded-full blur-[140px] pointer-events-none"></div>
@@ -59,7 +59,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         @for (m of metrics; track m.title; let i = $index) {
           <div class="running-border-wrapper" appReveal [style.transition-delay.ms]="i * 100">
-            <div class="h-full bg-gradient-to-b from-[#0e130e] via-[#090b09] to-[#060706] rounded-[1.2rem] p-6 tech-grid-pattern relative flex flex-col justify-between overflow-hidden group">
+            <div class="h-full bg-[#090b09] rounded-[1.2rem] p-6 tech-grid-pattern relative flex flex-col justify-between overflow-hidden group">
               <div class="absolute -top-10 -right-10 w-28 h-28 bg-lime/15 rounded-full blur-2xl pointer-events-none group-hover:bg-lime/25 transition-all duration-500"></div>
               <div>
                 <div class="flex items-center justify-between mb-4">
@@ -89,12 +89,12 @@
   </section>
 
   <!-- Professional lineup -->
-  <section class="py-20 md:py-28 bg-white">
+  <section class="section-screen py-20 md:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16" appReveal>
         <div>
           <span class="text-xs font-bold uppercase tracking-widest text-lime-dark block mb-2">// PRECISION SURFACE SERIES //</span>
-          <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">The Professional Lineup</h2>
+          <h2 appScrollTextReveal class="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">The Professional Lineup</h2>
         </div>
         <p class="mt-4 md:mt-0 text-sm md:text-base text-neutral-600 max-w-md">
           Formulated with optical grade American aliphatic TPU resin to guarantee absolute protection without orange peel or haze.
@@ -186,11 +186,11 @@
   </section>
 
   <!-- Comparison matrix -->
-  <section id="compare-matrix" class="py-20 md:py-24 bg-neutral-100 border-t border-b border-neutral-200 scroll-mt-20">
+  <section id="compare-matrix" class="section-screen py-20 md:py-24 bg-neutral-100 border-t border-b border-neutral-200 scroll-mt-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12" appReveal>
         <span class="text-xs font-bold uppercase tracking-widest text-lime-deep block mb-2">// TELEMETRY BENCHMARK //</span>
-        <h2 class="text-3xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">Compare the Range</h2>
+        <h2 appScrollTextReveal class="text-3xl md:text-5xl font-extrabold text-neutral-900 tracking-tight">Compare the Range</h2>
         <p class="mt-3 text-neutral-600 text-sm md:text-base">Comprehensive lab verified metrics of Cartron thermoplastic protection layers.</p>
       </div>
 
@@ -291,11 +291,11 @@
   </section>
 
   <!-- Film anatomy / datasheet -->
-  <section id="tech-matrix" class="py-20 md:py-24 bg-white scroll-mt-20">
+  <section id="tech-matrix" class="section-screen py-20 md:py-24 bg-white scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16" appReveal>
         <span class="text-xs font-bold uppercase tracking-widest text-lime-deep block mb-2">// MATERIAL ENGINEERING &amp; DATASHEET //</span>
-        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">Anatomy of the Film Matrix</h2>
+        <h2 appScrollTextReveal class="text-3xl md:text-5xl font-extrabold tracking-tight text-neutral-900">Anatomy of the Film Matrix</h2>
         <p class="mt-4 text-neutral-600 text-base">
           Four coordinated nano-layers engineered to bond seamlessly with exotic clear coats and neutralize high-velocity road hazards.
         </p>
@@ -333,7 +333,7 @@
   <!-- Acid-lime CTA -->
   <section
     id="quote"
-    class="py-20 md:py-24 text-white relative overflow-hidden shadow-2xl"
+    class="section-screen py-20 md:py-24 text-white relative overflow-hidden shadow-2xl"
     style="background: linear-gradient(135deg, rgb(164, 203, 56) 0%, rgb(143, 174, 50) 60%, rgb(104, 113, 94) 100%);"
   >
     <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]"></div>
@@ -341,7 +341,7 @@
       <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[11px] font-bold uppercase tracking-widest text-white mb-6 shadow-sm">
         <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>PRECISION APPLICATION &amp; INSTALLATION
       </div>
-      <h2 class="text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight text-white leading-none drop-shadow-sm" appReveal>
+      <h2 appScrollTextReveal class="text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight text-white leading-none drop-shadow-sm" appReveal>
         READY TO WRAP YOUR MACHINE IN AMERICAN TPU?
       </h2>
       <p class="mt-6 text-base sm:text-lg md:text-xl font-medium text-neutral-100 max-w-2xl mx-auto drop-shadow-sm delay-100" appReveal>

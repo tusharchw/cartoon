@@ -5,6 +5,7 @@ import { Footer } from '../../components/footer/footer';
 import { WhatsappButton } from '../../components/whatsapp-button/whatsapp-button';
 import { RevealOnScrollDirective } from '../../core/reveal-on-scroll.directive';
 import { SITE_CONTACT } from '../../core/site-contact';
+import { ScrollTextRevealDirective } from '../../core/scroll-text-reveal.directive';
 
 interface AtelierCard {
   image: string;
@@ -38,7 +39,7 @@ interface Benchmark {
 @Component({
   selector: 'app-about-page',
   templateUrl: './about-page.html',
-  imports: [Navbar, Footer, WhatsappButton, RevealOnScrollDirective, RouterLink],
+  imports: [ScrollTextRevealDirective, Navbar, Footer, WhatsappButton, RevealOnScrollDirective, RouterLink],
 })
 export class AboutPage {
   protected readonly contact = SITE_CONTACT;
@@ -52,8 +53,8 @@ export class AboutPage {
   protected readonly atelierCards: AtelierCard[] = [
     {
       image:
-        'https://lh3.googleusercontent.com/aida/AEtjO1WsRfeBaKlg9nhSVJlF1ypG7NhapQ4PvckoaqfnB3E9zDYnRznkv2s-7prteJNiIjDHf883_1YMG-40KGVG_dWT-saHmdWCx2D9APmx_EOf4ay1-O44axvq9MIY4ZN2G1qrXA0X0gd_-H4Fk7yqflP8ea6Re4bukcltMcNvFlRlKSuFkXqeQoVhXn-7noUl41RFbRXIQ1arwjo5EjQogEhxvFPz2ktIE4bQSwiHz6gJa3qjxPN6-UfpwTA',
-      alt: 'A luxury modern automotive cleanroom detailing studio with sports car undergoing PPF install',
+        'https://images.unsplash.com/photo-1617898528081-20d57598d40d?auto=format&fit=crop&crop=entropy&w=1200&h=750&q=80',
+      alt: 'Sports car in a clean, brightly lit installation bay with paint protection film being wet-applied over the hood and bumper',
       tags: ['// CLEANROOM BAY #01 //', 'AIRFLOW: 0.3u HEPA ACTIVE'],
       spec: 'SPEC: CLASS-100 POSITIVE PRESSURE',
       title: 'Pressurized Atmospheric Bay',
@@ -63,8 +64,8 @@ export class AboutPage {
     },
     {
       image:
-        'https://lh3.googleusercontent.com/aida/AEtjO1U44MnZV41hg-57w-upRMR2Pz6yBjZ_ORBQnbQtWjtyMwyK3Vc2RWtxmHz0u1MkQ1ZF5gZKPXcOPkmEIxCCFAtIZJQy23--VsfQh9hX9DeG3JcspqdpwtH-wx1QZ-wpdvSFqKs7k6pySyZT8Kx1fB9q7aKgGt4RYb23H6r_1Uhv0Z6UeVcy4-F7kudJ2a9sCcEM0dUWFRsUzZeHPhZeXmAhMtVN7S7nslpQwMECCpa1CFrjyLuHrbSG3Q',
-      alt: 'Macro close-up shot of applying paint protection film onto a luxury supercar hood',
+        'https://images.unsplash.com/photo-1632605157148-6313421c504b?auto=format&fit=crop&w=1200&h=750&q=80',
+      alt: 'Close-up of a gloved installer laying paint protection film across a car hood',
       tags: ['// FLUID DISPLACEMENT: 100% BOND //', 'ASHLAND® PSA ACTIVATION'],
       spec: 'PRESSURE GRADIENT: 45° PASS',
       title: 'Micro-Tolerance Edge-Wrapping',

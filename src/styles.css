@@ -280,10 +280,28 @@ html {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
+/* Grid lines layered over an opaque vertical gradient, so cards sitting in a
+   .running-border-wrapper hide the rotating conic gradient everywhere except
+   the 1.5px border ring. */
 .tech-grid-pattern {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 20px 20px;
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, #0e130e, #090b09 50%, #060706);
+  background-size: 20px 20px, 20px 20px, 100% 100%;
+}
+
+/* Full-viewport sections; children stay full width so max-w + mx-auto
+   containers keep working inside the flex column. Layered so utilities win. */
+@layer components {
+  .section-screen {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .section-screen > * {
+    width: 100%;
+  }
 }
 
 /* Ambient glows */
@@ -516,4 +534,13 @@ html {
   background: #ffffff;
   border-color: #a4cb38;
   box-shadow: 0 0 0 4px rgba(164, 203, 56, 0.15);
+}
+
+/* Scroll-scrubbed character fill (ScrollTextRevealDirective) */
+.scroll-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+.scroll-char {
+  transition: opacity 0.12s linear;
 }

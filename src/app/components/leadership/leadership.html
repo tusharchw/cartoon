@@ -1,4 +1,4 @@
-<section class="py-16 sm:py-20 md:py-24 bg-white border-b border-zinc-200">
+<section class="section-screen py-16 sm:py-20 md:py-24 bg-white border-b border-zinc-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="flex items-center justify-between mb-8 pb-4 border-b border-zinc-200 gap-4">
       <span class="section-tag">// OUR LEADERSHIP //</span>
@@ -7,7 +7,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
       <div class="md:col-span-4" appReveal>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-950 tracking-tight mb-6">
+        <h2 appScrollTextReveal class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-950 tracking-tight mb-6">
           People Behind<br><span class="text-refined-gradient">The Craft</span>
         </h2>
         <p class="text-xs text-zinc-500 leading-relaxed mb-6 font-medium">
@@ -25,7 +25,7 @@
               [src]="founder.image"
               [alt]="'Portrait of ' + founder.name"
               loading="lazy"
-              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 group-hover:scale-105"
+              class="w-full h-full object-cover object-[center_20%] grayscale group-hover:grayscale-0 transition duration-700 group-hover:scale-105"
             >
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-6 z-[1]">
               <div>
