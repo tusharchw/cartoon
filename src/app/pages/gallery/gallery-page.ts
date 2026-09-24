@@ -5,7 +5,6 @@ import { Footer } from '../../components/footer/footer';
 import { WhatsappButton } from '../../components/whatsapp-button/whatsapp-button';
 import { RevealOnScrollDirective } from '../../core/reveal-on-scroll.directive';
 import { SITE_CONTACT } from '../../core/site-contact';
-import { ScrollTextRevealDirective } from '../../core/scroll-text-reveal.directive';
 
 interface Build {
   tab: string;
@@ -22,7 +21,7 @@ interface Build {
 @Component({
   selector: 'app-gallery-page',
   templateUrl: './gallery-page.html',
-  imports: [ScrollTextRevealDirective, Navbar, Footer, WhatsappButton, RevealOnScrollDirective, RouterLink],
+  imports: [Navbar, Footer, WhatsappButton, RevealOnScrollDirective, RouterLink],
 })
 export class GalleryPage {
   protected readonly contact = SITE_CONTACT;

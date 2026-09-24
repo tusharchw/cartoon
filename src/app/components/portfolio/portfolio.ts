@@ -1,11 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RevealOnScrollDirective } from '../../core/reveal-on-scroll.directive';
-import { ScrollTextRevealDirective } from '../../core/scroll-text-reveal.directive';
 
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.html',
-  imports: [ScrollTextRevealDirective, RevealOnScrollDirective],
+  imports: [RevealOnScrollDirective],
 })
 export class Portfolio {
   protected readonly filters = ['Full Body PPF', 'Track Package', 'Stealth Matte', 'Interior & Carbon'];

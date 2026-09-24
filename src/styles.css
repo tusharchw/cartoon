@@ -258,6 +258,9 @@ html {
   color: #000;
   font-weight: 700;
 }
+.nav-on-dark .nav-link.nav-link-active {
+  color: #fff;
+}
 .nav-link.nav-link-active .nav-dot {
   display: inline-block;
 }
@@ -534,13 +537,4 @@ html {
   background: #ffffff;
   border-color: #a4cb38;
   box-shadow: 0 0 0 4px rgba(164, 203, 56, 0.15);
-}
-
-/* Scroll-scrubbed character fill (ScrollTextRevealDirective) */
-.scroll-word {
-  display: inline-block;
-  white-space: nowrap;
-}
-.scroll-char {
-  transition: opacity 0.12s linear;
 }

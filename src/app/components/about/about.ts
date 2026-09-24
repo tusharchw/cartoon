@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RevealOnScrollDirective } from '../../core/reveal-on-scroll.directive';
-import { ScrollTextRevealDirective } from '../../core/scroll-text-reveal.directive';
 
 interface ShowcaseImage {
   src: string;
@@ -16,7 +15,7 @@ interface Stat {
 @Component({
   selector: 'app-about',
   templateUrl: './about.html',
-  imports: [ScrollTextRevealDirective, RevealOnScrollDirective],
+  imports: [RevealOnScrollDirective],
 })
 export class About {
   protected readonly images: ShowcaseImage[] = [

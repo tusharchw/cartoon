@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RevealOnScrollDirective } from '../../core/reveal-on-scroll.directive';
-import { ScrollTextRevealDirective } from '../../core/scroll-text-reveal.directive';
 
 interface Founder {
   name: string;
@@ -11,7 +10,7 @@ interface Founder {
 @Component({
   selector: 'app-leadership',
   templateUrl: './leadership.html',
-  imports: [ScrollTextRevealDirective, RevealOnScrollDirective],
+  imports: [RevealOnScrollDirective],
 })
 export class Leadership {
   protected readonly founders: Founder[] = [

@@ -1,19 +1,26 @@
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md [-webkit-backdrop-filter:blur(12px)] border-b border-zinc-100 shadow-sm transition-all duration-300">
+<header
+  class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-transform duration-300"
+  [class.nav-on-dark]="isHome()"
+  [class.-translate-y-full]="isHidden()"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
     <a
       routerLink="/"
       (click)="onNavigate({ label: 'Home', path: '/' })"
       aria-label="CARTRON"
-      class="flex items-center gap-2 group shrink-0"
+      class="flex items-center gap-2 shrink-0"
     >
       <img
         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKqcZwE1RDPr4vRuWyd2CVYgxD-xdM5U5dmciv5rCOtoSdampkJ0_hlYPj-zQjIQ0EoKj5bn5uqWMSTCYICCVl7xmqERYwguTcYuaAr2CxS8-sGRMKID2EW0L8X-uVccnbdbhbS8Q6IcMp_OmocXUNc4iNLXf0WiWLuEh3OC0p0Cxs-v0dUBuXBPXItoaxUnE0WUJaEfti3BSLN4-wlnVrZPktSweNaqH7LbfXhyhRihTvHzQuGPfwaIcZiijBrz9zGg"
         alt="CARTRON"
-        class="h-11 sm:h-14 w-auto transition-transform group-hover:scale-[1.02]"
+        class="h-8 sm:h-10 w-auto brightness-0"
+        [class.invert]="isHome()"
       />
     </a>
 
-    <nav aria-label="Main Navigation" class="hidden md:flex items-center space-x-8 text-[13px] font-semibold tracking-wide text-zinc-600">
+    <nav aria-label="Main Navigation" class="hidden md:flex items-center space-x-8 text-[13px] font-semibold tracking-wide"
+      [class.text-white]="isHome()"
+      [class.text-black]="!isHome()">
       @for (link of links; track link.label) {
         <a
           [routerLink]="link.path"
@@ -22,7 +29,7 @@
           [routerLinkActiveOptions]="activeOptions"
           ariaCurrentWhenActive="page"
           (click)="onNavigate(link)"
-          class="nav-link hover:text-black transition-colors relative py-1 flex items-center gap-1.5 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-green after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+          class="nav-link transition-colors relative py-1 flex items-center gap-1.5 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-green after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
         >
           <span class="nav-dot relative hidden w-1.5 h-1.5">
             <span class="absolute inset-0 rounded-full bg-lime-dark animate-ping"></span>
@@ -43,7 +50,8 @@
 
       <button
         type="button"
-        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 text-zinc-900"
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border"
+        [class]="isHome() ? 'text-white border-white/40' : 'text-black border-black/20'"
         [attr.aria-expanded]="isMenuOpen()"
         aria-label="Toggle navigation menu"
         (click)="toggleMenu()"
