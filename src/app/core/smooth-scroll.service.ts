@@ -13,6 +13,7 @@ export class SmoothScrollService implements OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
   private lenis: Lenis | null = null;
   private rafId: number | null = null;
+  private paused = false;
 
   init(): void {
     if (!isPlatformBrowser(this.platformId) || this.lenis) {
@@ -33,12 +34,29 @@ export class SmoothScrollService implements OnDestroy {
       touchMultiplier: 1.1,
       syncTouch: false,
     });
+    if (this.paused) {
+      this.lenis.stop();
+    }
 
     const raf = (time: number) => {
       this.lenis?.raf(time);
       this.rafId = requestAnimationFrame(raf);
     };
     this.rafId = requestAnimationFrame(raf);
+  }
+
+  /** Locks page scrolling (e.g. while a full-screen overlay is up). */
+  setPaused(paused: boolean): void {
+    this.paused = paused;
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    document.documentElement.style.overflow = paused ? 'hidden' : '';
+    if (paused) {
+      this.lenis?.stop();
+    } else {
+      this.lenis?.start();
+    }
   }
 
   scrollTo(target: string | HTMLElement | number, offset = -88): void {

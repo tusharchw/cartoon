@@ -1,3 +1,6 @@
+@if (intro.active()) {
+  <app-intro (done)="intro.finish()" />
+}
 <app-navbar />
 <app-hero />
 <app-about />
